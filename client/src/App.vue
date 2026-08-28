@@ -16,16 +16,16 @@ const avatarUrl = "https://files.manuscdn.com/user_upload_by_module/session_file
     <div class="page-shell">
       <header class="intro" aria-label="林家淇的個人介紹">
         <div class="intro__visuals">
-          <img class="profile-avatar" :src="avatarUrl" alt="林家淇的個人頭像" />
           <PortfolioStack />
         </div>
 
         <div class="intro__copy">
+          <img class="profile-avatar" :src="avatarUrl" alt="林家淇的個人頭像" />
           <p class="intro__eyebrow">{{ profile.alias }} · {{ profile.location }} · {{ profile.birthday }} · {{ profile.mbti }}</p>
           <p>嗨！我是林家淇。</p>
-          <p>具 3 年以上前端開發經驗，正在往全端方向發展。</p>
-          <p>習慣主動釐清需求、把細節收乾淨再交付。</p>
-          <p>個性穩定、細心，重視交付品質與時程承諾，也習慣把踩過的坑紀錄成文檔留給團隊。</p>
+          <p>具備 3 年以上的前端開發經驗，熟悉 Vue 生態系，曾參與 BPM、ERP 等企業系統導入與維護，具備元件設計、API 串接、功能開發及系統文件撰寫經驗。</p>
+          <p>目前持續往全端工程師方向發展，透過 Vue + Spring Boot 完成前後端分離的 Side Project，實際累積 API、資料庫設計及雲端部署等後端開發經驗。</p>
+          <p>具備良好的學習能力與問題解決能力，重視程式碼的可維護性與團隊協作，期待在實務中持續拓展全端開發能力！</p>
         </div>
       </header>
 
