@@ -153,3 +153,16 @@
 本輪驗證結果：桌面與手機版均顯示通用 Title `Nana｜Resume`、新的全端方向自介與生日／INFJ 小標；Web Design 已併入 Front End。底部導覽已改為 Top、Experience、Education、Skills、Bottom，證書與聯絡連結使用一致的 Lucide 線性 icon，長文字與 icon 在窄螢幕仍保持可讀與垂直對齊。`pnpm run build` 已成功完成。
 
   
+
+# 舊 About 內容與英文區段標題修正
+
+- [x] 移除舊 about 區塊中的重複自介與「把需求釐清，再把細節交付。」。
+- [x] 將 Experience、Education、Skills、Certification 做成畫面上明確可見的副標題。
+- [x] 驗證頁面不再出現舊文案，並確認桌面／手機版標題對齊。
+- [x] 保存更新版本並交付。
+
+  
+
+本輪驗證結果：桌面與手機完整頁面均已移除「把需求釐清，再把細節交付。」及舊版 about 自介；Experience、Education、Skills、Certification 現在以真正的區段主標題顯示，並各自保留中文輔助標籤。建置與兩種 RWD 預覽均正常。
+
+  

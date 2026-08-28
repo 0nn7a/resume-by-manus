@@ -30,18 +30,11 @@ const avatarUrl = "https://files.manuscdn.com/user_upload_by_module/session_file
       </header>
 
       <div class="resume-index">
-        <ResumeSection id="about" title="" note="" :show-header="false">
-          <div class="about-copy">
-            <p class="about-statement">把需求釐清，再把細節交付。</p>
-            <p>{{ profile.summary }}</p>
-          </div>
-        </ResumeSection>
-
-        <ResumeSection id="experience" title="工作經驗" note="Experience">
+        <ResumeSection id="experience" title="Experience" note="工作經驗">
           <ExperienceEntry v-for="entry in experience" :key="entry.company" :entry="entry" />
         </ResumeSection>
 
-        <ResumeSection id="education" title="學歷" note="Education">
+        <ResumeSection id="education" title="Education" note="學歷">
           <div class="simple-list">
             <article v-for="item in education" :key="item.school" class="simple-list__item">
               <p class="simple-list__period">{{ item.interval }}</p>
@@ -53,13 +46,13 @@ const avatarUrl = "https://files.manuscdn.com/user_upload_by_module/session_file
           </div>
         </ResumeSection>
 
-        <ResumeSection id="skills" title="技能與工具" note="Skills">
+        <ResumeSection id="skills" title="Skills" note="技能與工具">
           <div class="skills-list">
             <SkillGroup v-for="group in skills" :key="group.label" :group="group" />
           </div>
         </ResumeSection>
 
-        <ResumeSection id="credentials" title="資格認證" note="Certification">
+        <ResumeSection id="credentials" title="Certification" note="資格認證">
           <div class="credential-list">
             <article v-for="certificate in certifications" :key="certificate.code" class="credential-list__item">
               <p class="credential-list__period">{{ certificate.interval }}</p>

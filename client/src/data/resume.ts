@@ -41,8 +41,6 @@ export const profile = {
   location: "Taipei, Taiwan",
   github: "https://github.com/0nn7a",
   portfolio: "https://www.cake.me/me/0nn/portfolios",
-  summary:
-    "一個設計背景出身的前端工程師，具 3 年以上企業系統開發經驗。習慣主動釐清需求、把細節收乾淨再交付。個性穩定、細心，重視交付品質與時程承諾，也習慣把踩過的坑紀錄成文檔留給團隊。",
 };
 
 /**
