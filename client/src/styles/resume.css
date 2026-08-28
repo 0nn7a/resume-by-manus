@@ -120,8 +120,6 @@ a { color: inherit; text-decoration: none; }
 .portfolio-card__visual::after { position: absolute; z-index: 1; inset: 0; border-radius: inherit; background: rgba(18, 16, 20, 0.7); content: ""; opacity: 0; transition: opacity 180ms cubic-bezier(0.23, 1, 0.32, 1); }
 .portfolio-card__link-cue { position: absolute; z-index: 2; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.58rem; padding: 1.2rem; color: #fff; opacity: 0; text-align: center; transform: scale(0.94); transition: opacity 180ms cubic-bezier(0.23, 1, 0.32, 1), transform 180ms cubic-bezier(0.23, 1, 0.32, 1); }
 .portfolio-card__summary { max-width: calc(100% - 1rem); color: #fff; font-family: "Noto Sans TC", sans-serif; font-size: clamp(0.72rem, 1.1vw, 0.9rem); font-weight: 650; line-height: 1.55; text-shadow: 0 1px 0.45rem rgba(0, 0, 0, 0.22); }
-.portfolio-card.is-selected .portfolio-card__visual::after { opacity: 1; }
-.portfolio-card.is-selected .portfolio-card__link-cue { opacity: 1; transform: scale(1); }
 .portfolio-card.is-selected:hover .portfolio-card__visual::after, .portfolio-card.is-selected:focus-visible .portfolio-card__visual::after { opacity: 1; }
 .portfolio-card.is-selected:hover .portfolio-card__link-cue, .portfolio-card.is-selected:focus-visible .portfolio-card__link-cue { opacity: 1; transform: scale(1); }
 .portfolio-card.tone--linen, .portfolio-card.tone--mist, .portfolio-card.tone--dawn, .portfolio-card.tone--moss, .portfolio-card.tone--seaside { background: transparent; }
