@@ -73,30 +73,28 @@ export const experience: Experience[] = [
       {
         title: "前端開發",
         points: [
-          "運用原生 JavaScript、jQuery、Vue 3 Component（Vue Router、Pinia）等技術完成企業系統功能。",
-          "執行 Bootstrap、Tailwind CSS 的 RWD 響應式切版與設計還原。",
-          "規劃可複用元件，如前後台 Layout、插槽表格與全站 Toast／Dialog。",
-          "透過 RESTful API 串接與後端協作，並配合 CI/CD 流程與部署文件維護。",
+          "熟悉原生 JavaScript／jQuery / Vue3 Component（+VueRouter, Pinia）等技術",
+          "RWD 響應式切版（Bootstrap、Tailwind CSS）",
+          "復用型組件設計（如前後台 Layout、插槽表格、全站 Toast／Dialog）",
+          "RESTful API 串接與後端協作",
+          "CI/CD 流程文件與部署配合",
         ],
-      },
-      {
-        title: "UI／UX 設計",
-        points: ["使用 Figma 進行介面設計與 Prototype 製作。", "進行設計稿切版、互動細節與視覺規格還原。"],
       },
       {
         title: "系統開發與維運",
         points: [
-          "設計表單電子化與簽核流程邏輯，累計參與 104 套 BPM 系統。",
-          "處理組織管理需求，包含部門架構與人事異動維護。",
-          "進行 SQL 資料處理，包括跨表單資料串接與依狀態更新多張表。",
+          "表單電子化與簽核流程邏輯設計（BPM、104 系統）",
+          "組織管理（部門架構、人事異動維護）",
+          "SQL 資料處理（跨表單資料串接、依狀態更新多表等）",
         ],
       },
       {
         title: "自主進修",
         points: [
-          "Java 後端開發：Maven、Spring Boot、MyBatis。",
-          "Redis 快取應用；Docker 容器化與 Linux Ubuntu 虛擬機部署。",
-          "持續接觸 Nuxt 4、TypeScript 與 Svelte。",
+          "Java 後端開發（Maven、Spring Boot、MyBatis）",
+          "Redis 快取應用",
+          "Docker 容器化、Linux Ubuntu 虛擬機部署",
+          "Nuxt4、TypeScript、Svelte",
         ],
       },
     ],

@@ -71,3 +71,12 @@ GitHub Pages 前置檢查（2026-08-28）：`https://github.com/0nn7a/resume-by-
 
 
 自介明確換行驗證：App.vue 已在四個 `<p>` 之間加入三個 `br.intro__paragraph-break`，CSS 以固定高度提供段落間隔（桌面 1.18rem、手機 1.08rem）。桌面與 390px 手機截圖均確認「嗨！我是林家淇。」與後續三段之間都有清楚空行，且內容沒有溢出。
+
+
+GitHub 權限更新檢查（2026-08-28）：GitHub CLI 已能讀取 `0nn7a/resume-by-manus`，確認 repository 存在、目前為 Private，預設分支為 `main`，表示目前整合帳號具備至少讀取權限。瀏覽器未登入狀態開啟同一網址會顯示 Page not found，不能用來判斷 repository 不存在；若要執行首次 push，仍需確認目前整合帳號具備 contents write 權限。尚未進行 push 或發布。
+
+
+Experience 內容驗證：已以使用者指定版本取代前端開發、系統開發與維運、自主進修三個模組，移除原本未列出的 UI／UX 設計模組。桌面與 390px 手機完整頁面截圖確認條目換行自然；中文職稱與模組標題字重已由 800 調整為 700，內文維持 500，層級仍清楚但視覺較不厚重。正式建置成功。
+
+
+GitHub 權限詳情：`gh api repos/0nn7a/resume-by-manus` 回傳 repository 為 private、default branch 為 `main`，目前整合帳號 permissions 為 `admin: true`、`maintain: true`、`push: true`，因此具備首次推送與設定 Pages 所需的 repository 寫入權限。本輪尚未執行 push。
