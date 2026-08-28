@@ -7,7 +7,7 @@ import ResumeSection from "@/components/ResumeSection.vue";
 import SkillGroup from "@/components/SkillGroup.vue";
 import { certifications, education, experience, profile, skills } from "@/data/resume";
 
-const avatarUrl = "/manus-storage/nana-avatar_2d28ae2e.jpeg";
+const avatarUrl = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663030849489/oAJLPvfVgHVhbtVA.jpeg";
 </script>
 
 <template>

@@ -1,10 +1,14 @@
 # Nana｜Quiet Personal Index
 
-這是一個使用 **Vite、Vue 3 Composition API 與 TypeScript** 製作的個人履歷與作品集首頁。設計以大量留白、窄欄閱讀、小型圓形頭像、三張重疊卡與黑色底部膠囊導覽為主；它會先把 Nana 的背景說清楚，再讓訪客展開同一組五張作品卡。
+這是一個使用 **Vite、Vue 3 Composition API 與 TypeScript** 製作的純靜態個人履歷與作品集首頁。專案不包含 Express、API、資料庫或線上編輯服務；履歷內容直接寫在前端資料檔，頭像使用可公開存取的靜態 CDN URL。設計以大量留白、窄欄閱讀、小型圓形頭像、三張重疊卡與黑色底部膠囊導覽為主；它會先把 Nana 的背景說清楚，再讓訪客展開同一組五張作品卡。
 
 ## 目前已完成的互動
 
 首頁的三張柔和色調卡片是同一個作品集入口。點擊後，畫面會開啟 `SELECTED WORKS / 05` 瀏覽層並展開五張卡片；點選其中一張會聚焦該卡、柔焦其餘卡片，並呈現短簡介與連結的預留位置。按關閉按鈕或按 `Esc` 可回到首頁。底部膠囊導覽會帶訪客到介紹、工作經驗、技能與聯繫區段。
+
+## 架構說明
+
+這個網站是 Vite 產生的純靜態輸出，部署產物只有 `dist/` 下的 HTML、CSS、JavaScript 與前端引用的公開資源。根目錄沒有應用程式伺服器；Vite 的 `dev` 與 `preview` 命令只供本機開發和預覽使用。
 
 ## 專案結構
 
@@ -69,7 +73,7 @@ git push -u origin main
 
 ### 頭像與作品圖片
 
-目前預覽使用已上傳的頭像素材。若要將專案獨立部署至 GitHub Pages，請將 `client/src/App.vue` 中的 `avatarUrl` 替換為一個你可長期公開存取的圖片網址；作品圖片就緒後也可按相同方式加入。請勿把私人或不希望公開的影像放入公開儲存庫；GitHub Pages 對外發布後可公開存取。[1]
+目前 `client/src/App.vue` 已使用可直接公開存取的 CDN 頭像 URL，因此 GitHub Pages 不需要圖片代理或專案內伺服器即可載入。作品圖片就緒後，可將 URL 直接填入 `client/src/data/resume.ts` 的 `portfolioCards[].image`；請勿把私人或不希望公開的影像放入公開儲存庫，因為 GitHub Pages 對外發布後可被存取。[1]
 
 ## 參考資料
 
