@@ -19,6 +19,8 @@ function closeCollection() {
 }
 
 function focusCard(id: string) {
+  if (selectedId.value && selectedId.value !== id) return;
+
   const card = portfolioCards.find((item) => item.id === id);
   if (selectedId.value === id && card?.href) {
     window.open(card.href, "_blank", "noopener,noreferrer");
