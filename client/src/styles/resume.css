@@ -114,7 +114,7 @@ a { color: inherit; text-decoration: none; }
 .collection-stage { position: relative; z-index: 1; align-self: center; width: min(100%, 64rem); height: min(37rem, 100%); min-height: 0; margin: 0 auto; }
 .collection-stage__backdrop { position: absolute; z-index: 1; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; background: transparent; }
 .collection-stage__backdrop:focus-visible { outline: 0; }
-.portfolio-card { position: absolute; z-index: 2; display: block; width: clamp(8.5rem, 14vw, 11.5rem); aspect-ratio: 2 / 3; height: auto; padding: 0; overflow: hidden; border: 1px solid rgba(255,255,255,0.78); border-radius: 0.92rem; background: transparent; box-shadow: 0 0.28rem 0.72rem rgba(35, 29, 34, 0.08), 0 1.2rem 1.7rem rgba(35, 29, 34, 0.12); cursor: pointer; isolation: isolate; opacity: 0; transform-origin: center center; will-change: top, left, transform, opacity, filter; transition: top 560ms cubic-bezier(0.23, 1, 0.32, 1), left 560ms cubic-bezier(0.23, 1, 0.32, 1), opacity 300ms cubic-bezier(0.23, 1, 0.32, 1), filter 380ms cubic-bezier(0.23, 1, 0.32, 1), transform 560ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 300ms cubic-bezier(0.23, 1, 0.32, 1); animation: card-spread 560ms cubic-bezier(0.23, 1, 0.32, 1) forwards; }
+.portfolio-card { --card-x: 0rem; --card-y: 0rem; --card-rotate: 0deg; --card-scale: 1; position: absolute; z-index: 2; top: 50%; left: 50%; display: block; width: clamp(8.5rem, 14vw, 11.5rem); aspect-ratio: 2 / 3; height: auto; margin: 0; padding: 0; overflow: hidden; border: 1px solid rgba(255,255,255,0.78); border-radius: 0.92rem; background: transparent; box-shadow: 0 0.28rem 0.72rem rgba(35, 29, 34, 0.08), 0 1.2rem 1.7rem rgba(35, 29, 34, 0.12); cursor: pointer; isolation: isolate; opacity: 0; transform-origin: center center; will-change: transform, opacity, filter; transform: translate(-50%, -50%) translate(var(--card-x), var(--card-y)) rotate(var(--card-rotate)) scale(var(--card-scale)); transition: opacity 300ms cubic-bezier(0.23, 1, 0.32, 1), filter 380ms cubic-bezier(0.23, 1, 0.32, 1), transform 560ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 300ms cubic-bezier(0.23, 1, 0.32, 1); animation: card-spread 560ms cubic-bezier(0.23, 1, 0.32, 1) forwards; }
 .portfolio-card:hover { box-shadow: 0 0.42rem 0.9rem rgba(35, 29, 34, 0.1), 0 1.45rem 2.1rem rgba(35, 29, 34, 0.17); }
 .portfolio-card__visual { position: absolute; inset: 0; display: block; overflow: hidden; border-radius: inherit; }
 .portfolio-card__visual::after { position: absolute; z-index: 1; inset: 0; border-radius: inherit; background: rgba(18, 16, 20, 0.7); content: ""; opacity: 0; transition: opacity 180ms cubic-bezier(0.23, 1, 0.32, 1); }
@@ -126,14 +126,14 @@ a { color: inherit; text-decoration: none; }
 .portfolio-card.tone--linen, .portfolio-card.tone--mist, .portfolio-card.tone--dawn, .portfolio-card.tone--moss, .portfolio-card.tone--seaside { background: transparent; }
 .portfolio-card__visual::before { display: none; }
 .portfolio-card__visual img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.portfolio-card--01 { z-index: 7; top: 8%; left: 50%; margin-left: -14.1rem; transform: rotate(-8deg); animation-delay: 60ms; }
-.portfolio-card--02 { z-index: 6; top: 4%; left: 50%; margin-left: -5.55rem; transform: rotate(3deg); animation-delay: 110ms; }
-.portfolio-card--03 { z-index: 5; top: 8%; left: 50%; margin-left: 3rem; transform: rotate(10deg); animation-delay: 160ms; }
-.portfolio-card--04 { z-index: 4; top: 51%; left: 50%; margin-left: -9.9rem; transform: rotate(-6deg); animation-delay: 210ms; }
-.portfolio-card--05 { z-index: 3; top: 48%; left: 50%; margin-left: -1.35rem; transform: rotate(6deg); animation-delay: 260ms; }
+.portfolio-card--01 { --card-x: -8.55rem; --card-y: -7.1rem; --card-rotate: -8deg; z-index: 7; animation-delay: 60ms; }
+.portfolio-card--02 { --card-x: 0rem; --card-y: -8.45rem; --card-rotate: 3deg; z-index: 6; animation-delay: 110ms; }
+.portfolio-card--03 { --card-x: 8.55rem; --card-y: -7.1rem; --card-rotate: 10deg; z-index: 5; animation-delay: 160ms; }
+.portfolio-card--04 { --card-x: -4.25rem; --card-y: 8.65rem; --card-rotate: -6deg; z-index: 4; animation-delay: 210ms; }
+.portfolio-card--05 { --card-x: 4.25rem; --card-y: 8.15rem; --card-rotate: 6deg; z-index: 3; animation-delay: 260ms; }
 .collection-stage.is-focused .portfolio-card:not(.is-selected) { filter: blur(5px) saturate(0.72); opacity: 0.28; pointer-events: none; cursor: default; }
 .collection-stage__backdrop { z-index: 1; }
-.collection-stage .portfolio-card.is-selected { z-index: 10; top: 50%; right: auto; bottom: auto; left: 50%; margin-left: 0; filter: none; opacity: 1; transform: translate(-50%, -50%) rotate(0deg) scale(2.1); box-shadow: 0 0.55rem 1rem rgba(35, 29, 34, 0.1), 0 1.85rem 2.55rem rgba(35, 29, 34, 0.19); }
+.collection-stage .portfolio-card.is-selected { --card-x: 0rem; --card-y: 0rem; --card-rotate: 0deg; --card-scale: 2.1; z-index: 10; filter: none; opacity: 1; box-shadow: 0 0.55rem 1rem rgba(35, 29, 34, 0.1), 0 1.85rem 2.55rem rgba(35, 29, 34, 0.19); }
 .collection-overlay__close { position: fixed; z-index: 50; right: auto; bottom: max(1rem, env(safe-area-inset-bottom, 0px) + 0.7rem); left: 50%; display: grid; width: 3rem; height: 2.6rem; margin: 0; padding: 0; place-items: center; border: 1px solid rgba(255,255,255,0.07); border-radius: 99px; background: #202022; color: #fcfafb; cursor: pointer; transform: translateX(-50%); transition: transform 180ms cubic-bezier(0.23, 1, 0.32, 1), background 180ms cubic-bezier(0.23, 1, 0.32, 1); }
 .collection-overlay__close svg { display: block; }
 .collection-overlay__close:hover { transform: translateX(-50%) scale(0.94); }
@@ -170,12 +170,12 @@ a { color: inherit; text-decoration: none; }
   .collection-overlay { padding: 1.2rem 1rem calc(4.8rem + env(safe-area-inset-bottom, 0px)); }
   .collection-stage { width: 100%; height: min(33rem, 100%); margin: 0 auto; }
   .portfolio-card { width: min(10.25rem, 32vw); aspect-ratio: 2 / 3; height: auto; border-radius: 0.82rem; }
-  .portfolio-card--01 { z-index: 7; top: 8%; left: 50%; margin-left: -10.25rem; transform: rotate(-7deg); }
-  .portfolio-card--02 { z-index: 6; top: 4%; left: 50%; margin-left: -3.8rem; transform: rotate(2deg); }
-  .portfolio-card--03 { z-index: 5; top: 8%; left: 50%; margin-left: 2.65rem; transform: rotate(8deg); }
-  .portfolio-card--04 { z-index: 4; top: 52%; left: 50%; margin-left: -7.3rem; transform: rotate(-5deg); }
-  .portfolio-card--05 { z-index: 3; top: 49%; left: 50%; margin-left: 0.2rem; transform: rotate(5deg); }
-  .collection-stage .portfolio-card.is-selected { transform: translate(-50%, -50%) rotate(0deg) scale(1.9); }
+  .portfolio-card--01 { --card-x: -6.4rem; --card-y: -6rem; --card-rotate: -7deg; z-index: 7; }
+  .portfolio-card--02 { --card-x: 0rem; --card-y: -6.35rem; --card-rotate: 2deg; z-index: 6; }
+  .portfolio-card--03 { --card-x: 6.4rem; --card-y: -6rem; --card-rotate: 8deg; z-index: 5; }
+  .portfolio-card--04 { --card-x: -3.6rem; --card-y: 6.7rem; --card-rotate: -5deg; z-index: 4; }
+  .portfolio-card--05 { --card-x: 3.6rem; --card-y: 6.3rem; --card-rotate: 5deg; z-index: 3; }
+  .collection-stage .portfolio-card.is-selected { --card-scale: 1.9; }
   .bottom-nav { bottom: max(0.8rem, env(safe-area-inset-bottom, 0px) + 0.55rem); }
   .bottom-nav a { width: 2.18rem; height: 2.18rem; font-size: 1.08rem; }
 }
