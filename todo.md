@@ -241,3 +241,11 @@
 - [x] 確認 repository 已為 Public、Pages source 為 GitHub Actions，並重新推送修正。
 - [x] 檢查最新 Actions 執行結果、Pages 實際網址與首頁資產載入。
 - [x] 完成正式建置與預覽驗證，保存更新版本。
+
+
+# Mobile Safari 柔焦邊界修正
+
+- [ ] 檢查上下柔焦偽元素目前使用的固定高度與 viewport 單位。
+- [ ] 以 `100dvh`、`env(safe-area-inset-*)` 與固定定位修正底部貼齊。
+- [ ] 驗證手機 viewport、作品集展開狀態與桌面版不受影響。
+- [ ] 完成正式建置並保存更新版本。
