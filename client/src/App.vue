@@ -1,181 +1,93 @@
-<!-- Design system: the ink-black workbench frames one tactile resume sheet; asymmetric Swiss typography, twin rules, and quiet film texture make reading the interaction. -->
+<!-- Design system: Quiet Personal Index uses a narrow, generously spaced reading column, a real circular portrait, and soft card-based work discovery inspired by the supplied RWD references. -->
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref } from "vue";
+import BottomNav from "@/components/BottomNav.vue";
 import ExperienceEntry from "@/components/ExperienceEntry.vue";
-import SectionHeading from "@/components/SectionHeading.vue";
+import PortfolioStack from "@/components/PortfolioStack.vue";
+import ResumeSection from "@/components/ResumeSection.vue";
 import SkillGroup from "@/components/SkillGroup.vue";
-import { certifications, education, experience, highlights, profile, skills } from "@/data/resume";
+import { certifications, education, experience, profile, skills } from "@/data/resume";
 
-const navItems = [
-  { id: "about", label: "ABOUT" },
-  { id: "experience", label: "WORK" },
-  { id: "education", label: "EDU" },
-  { id: "skills", label: "SKILLS" },
-];
-
-const assets = {
-  mark: "/manus-storage/nana-mark_1b4c49e3.png",
-  contactSheet: "/manus-storage/nana-contact-sheet_63797c9b.jpg",
-};
-
-const activeSection = ref("about");
-const menuOpen = ref(false);
-const activeLabel = computed(() => navItems.find((item) => item.id === activeSection.value)?.label ?? "INDEX");
-let observer: IntersectionObserver | undefined;
-
-function closeMenu() {
-  menuOpen.value = false;
-}
-
-function printResume() {
-  window.print();
-}
-
-onMounted(() => {
-  const sections = document.querySelectorAll<HTMLElement>("[data-observe-section]");
-  observer = new IntersectionObserver(
-    (entries) => {
-      const visible = entries.find((entry) => entry.isIntersecting);
-      if (visible) activeSection.value = visible.target.id;
-    },
-    { rootMargin: "-24% 0px -63%", threshold: 0 },
-  );
-  sections.forEach((section) => observer?.observe(section));
-});
-
-onUnmounted(() => observer?.disconnect());
+const avatarUrl = "/manus-storage/nana-avatar_2d28ae2e.jpeg";
 </script>
 
 <template>
-  <header class="workbench-header" aria-label="履歷導覽">
-    <a class="brand-lockup" href="#top" aria-label="回到 Nana 履歷頂端">
-      <span class="brand-symbol brand-symbol--inverse" aria-hidden="true">
-        <img :src="assets.mark" alt="" />
-      </span>
-      <span>NANA<br />0NN</span>
-    </a>
-
-    <button class="mobile-index" type="button" :aria-expanded="menuOpen" aria-controls="resume-nav" @click="menuOpen = !menuOpen">
-      <span>{{ activeLabel }}</span>
-      <span aria-hidden="true">{{ menuOpen ? "−" : "+" }}</span>
-    </button>
-
-    <nav id="resume-nav" :class="{ 'is-open': menuOpen }">
-      <a
-        v-for="item in navItems"
-        :key="item.id"
-        :href="`#${item.id}`"
-        :aria-current="activeSection === item.id ? 'location' : undefined"
-        @click="closeMenu"
-      >
-        {{ item.label }}
-      </a>
-      <button type="button" @click="printResume">PRINT / PDF</button>
-    </nav>
-
-    <p class="header-note">AVAILABLE<br />FOR BUILDING</p>
-  </header>
-
-  <main id="top" class="workbench">
-    <article class="resume-sheet" aria-label="林家淇的個人履歷">
-      <header class="resume-intro">
-        <div class="intro-kicker">
-          <span>RESUME / 2026</span>
-          <span>TAIPEI · TAIWAN</span>
+  <main id="top" class="quiet-resume">
+    <div class="page-shell">
+      <header class="intro" aria-label="林家淇的個人介紹">
+        <div class="intro__visuals">
+          <img class="profile-avatar" :src="avatarUrl" alt="林家淇的個人頭像" />
+          <PortfolioStack />
         </div>
 
-        <div class="identity-grid">
-          <div class="name-block">
-            <p class="alias">{{ profile.alias }}</p>
-            <h1>{{ profile.displayName }}</h1>
-            <p class="chinese-name">{{ profile.name }}</p>
-          </div>
-
-          <div class="role-block">
-            <p class="role">{{ profile.role }}</p>
-            <dl>
-              <div><dt>BORN</dt><dd>{{ profile.birthday }}</dd></div>
-              <div><dt>MAIL</dt><dd><a :href="`mailto:${profile.email}`">{{ profile.email }}</a></dd></div>
-            </dl>
-          </div>
-        </div>
-
-        <figure class="film-gesture" aria-label="抽象黑白接觸印相裝飾">
-          <img :src="assets.contactSheet" alt="" />
-          <figcaption>CONTACT / 0NN</figcaption>
-        </figure>
-
-        <div class="profile-bottom">
-          <div class="profile-links">
-            <a :href="profile.github" target="_blank" rel="noreferrer">GITHUB <span>↗</span></a>
-            <a :href="profile.portfolio" target="_blank" rel="noreferrer">CAKE RESUME <span>↗</span></a>
-          </div>
-          <div class="highlight-row hero-highlights" aria-label="職涯摘要">
-            <div v-for="highlight in highlights" :key="highlight.label" class="highlight-item">
-              <strong>{{ highlight.value }}</strong>
-              <span>{{ highlight.label }}</span>
-            </div>
-          </div>
-          <div class="identity-stamp" aria-hidden="true">
-            <span class="brand-symbol">
-              <img :src="assets.mark" alt="" />
-            </span>
-          </div>
+        <div class="intro__copy">
+          <p class="intro__eyebrow">{{ profile.alias }} · {{ profile.location }}</p>
+          <h1>嗨，我是 Nana。</h1>
+          <p>我是設計背景出身的前端工程師，具 3 年以上企業系統開發經驗。</p>
+          <p>
+            我習慣主動釐清需求，把細節收乾淨再交付；在時程與品質之間，維持穩定、可溝通的節奏。
+          </p>
+          <p>
+            目前累積參與 104 套 BPM 流程系統，也持續整理元件設計、部署與維運中踩過的坑，讓團隊能更快延續工作。
+          </p>
+          <p>
+            我對能讓人清楚使用、安心維護的產品特別有興趣。這裡記錄我的工作經驗、技術工具與正在整理的作品。
+          </p>
         </div>
       </header>
 
-      <section id="about" class="resume-section about-section" data-observe-section>
-        <SectionHeading index="01" title="About Me" subtitle="關於我" />
-        <div class="section-content about-content">
-          <p class="lead-statement">把需求釐清，再把細節交付。</p>
+      <div class="resume-index">
+        <ResumeSection id="about" title="關於我" note="About Nana">
+          <p class="about-statement">把需求釐清，再把細節交付。</p>
           <p>{{ profile.summary }}</p>
-        </div>
-      </section>
+        </ResumeSection>
 
-      <section id="experience" class="resume-section" data-observe-section>
-        <SectionHeading index="02" title="Experience" subtitle="工作／專案經歷" />
-        <div class="section-content">
+        <ResumeSection id="experience" title="工作經驗" note="Experience">
           <ExperienceEntry v-for="entry in experience" :key="entry.company" :entry="entry" />
-        </div>
-      </section>
+        </ResumeSection>
 
-      <section id="education" class="resume-section" data-observe-section>
-        <SectionHeading index="03" title="Education" subtitle="教育經歷" />
-        <div class="section-content education-list">
-          <article v-for="item in education" :key="item.school" class="education-entry">
-            <p>{{ item.interval }}</p>
-            <div>
-              <h3>{{ item.school }}</h3>
-              <span>{{ item.department }}</span>
-            </div>
-          </article>
-        </div>
-      </section>
+        <ResumeSection id="education" title="學歷" note="Education">
+          <div class="simple-list">
+            <article v-for="item in education" :key="item.school" class="simple-list__item">
+              <p>{{ item.interval }}</p>
+              <div>
+                <h3>{{ item.school }}</h3>
+                <span>{{ item.department }}</span>
+              </div>
+            </article>
+          </div>
+        </ResumeSection>
 
-      <section id="certifications" class="resume-section" data-observe-section>
-        <SectionHeading index="04" title="Credentials" subtitle="資格認證" />
-        <div class="section-content certification-list">
-          <article v-for="certificate in certifications" :key="certificate.code" class="certificate-entry">
-            <div>
-              <h3>{{ certificate.title }}</h3>
-              <p>{{ certificate.issuer }} <span>/</span> {{ certificate.code }}</p>
-            </div>
-            <time>{{ certificate.interval }}</time>
-          </article>
-        </div>
-      </section>
+        <ResumeSection id="skills" title="技能與工具" note="Skills">
+          <div class="skills-list">
+            <SkillGroup v-for="group in skills" :key="group.label" :group="group" />
+          </div>
+        </ResumeSection>
 
-      <section id="skills" class="resume-section skills-section" data-observe-section>
-        <SectionHeading index="05" title="Skills" subtitle="技術與工具" />
-        <div class="section-content skills-layout">
-          <SkillGroup v-for="group in skills" :key="group.label" :group="group" />
-        </div>
-      </section>
+        <ResumeSection id="credentials" title="資格認證" note="Credentials">
+          <div class="credential-list">
+            <article v-for="certificate in certifications" :key="certificate.code" class="credential-list__item">
+              <p>{{ certificate.interval }}</p>
+              <div>
+                <h3>{{ certificate.title }}</h3>
+                <span>{{ certificate.issuer }} · {{ certificate.code }}</span>
+              </div>
+            </article>
+          </div>
+        </ResumeSection>
 
-      <footer class="resume-footer">
-        <p>© {{ new Date().getFullYear() }} NANA / 0NN</p>
-        <p>DESIGN BACKGROUND · FRONTEND CRAFT</p>
-      </footer>
-    </article>
+        <ResumeSection id="connect" title="保持聯繫" note="Contact">
+          <p class="connect-copy">若你正在找重視細節與協作節奏的前端工程師，歡迎和我聊聊。</p>
+          <div class="connect-links">
+            <a :href="`mailto:${profile.email}`">{{ profile.email }}</a>
+            <a :href="profile.github" target="_blank" rel="noreferrer">GitHub ↗</a>
+            <a :href="profile.portfolio" target="_blank" rel="noreferrer">Cake Resume ↗</a>
+          </div>
+        </ResumeSection>
+      </div>
+
+      <footer class="site-footer">© {{ new Date().getFullYear() }} {{ profile.name }} · {{ profile.alias }}</footer>
+    </div>
+
+    <BottomNav />
   </main>
 </template>

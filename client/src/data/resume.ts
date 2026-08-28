@@ -20,6 +20,15 @@ export type SkillGroup = {
   tags: string[];
 };
 
+export type PortfolioCard = {
+  id: string;
+  index: string;
+  title: string;
+  summary: string;
+  href?: string;
+  tone: "linen" | "mist" | "dawn" | "moss" | "seaside";
+};
+
 export const profile = {
   name: "林家淇",
   displayName: "NANA",
@@ -27,11 +36,24 @@ export const profile = {
   role: "Frontend Engineer",
   email: "suannai1230@gmail.com",
   birthday: "1999.10.10",
+  location: "Taipei, Taiwan",
   github: "https://github.com/0nn7a",
   portfolio: "https://www.cake.me/me/0nn/portfolios",
   summary:
     "嗨！我是 Nana，一個設計背景出身的前端工程師，具 3 年以上企業系統開發經驗。習慣主動釐清需求、把細節收乾淨再交付。個性穩定、細心，重視交付品質與時程承諾，也習慣把踩過的坑紀錄成文檔留給團隊。",
 };
+
+/**
+ * Replace title, summary, href, and tone in this array when project assets are ready.
+ * Five records form one collection: the home stack previews the first three records.
+ */
+export const portfolioCards: PortfolioCard[] = [
+  { id: "work-01", index: "01", title: "作品待設定 01", summary: "之後可在此填入作品的短簡介。", tone: "linen" },
+  { id: "work-02", index: "02", title: "作品待設定 02", summary: "之後可在此填入作品的短簡介。", tone: "mist" },
+  { id: "work-03", index: "03", title: "作品待設定 03", summary: "之後可在此填入作品的短簡介。", tone: "dawn" },
+  { id: "work-04", index: "04", title: "作品待設定 04", summary: "之後可在此填入作品的短簡介。", tone: "moss" },
+  { id: "work-05", index: "05", title: "作品待設定 05", summary: "之後可在此填入作品的短簡介。", tone: "seaside" },
+];
 
 export const highlights = [
   { value: "3+", label: "years / enterprise systems" },

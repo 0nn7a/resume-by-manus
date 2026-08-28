@@ -1,4 +1,4 @@
-<!-- Design system: each skill group uses typographic hierarchy, a cyan-free graphite underline, and sparse tags rather than rounded UI chips. -->
+<!-- Design system: skill groups read as soft index notes; their hierarchy comes from text and whitespace, not cards or heavy rules. -->
 <script setup lang="ts">
 import type { SkillGroup as SkillGroupModel } from "@/data/resume";
 
