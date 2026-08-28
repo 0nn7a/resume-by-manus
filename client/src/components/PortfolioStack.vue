@@ -27,10 +27,6 @@ function focusCard(id: string) {
   selectedId.value = id;
 }
 
-function clearSelection() {
-  selectedId.value = null;
-}
-
 function handleEscape(event: KeyboardEvent) {
   if (event.key === "Escape" && isOpen.value) closeCollection();
 }
@@ -62,7 +58,7 @@ onUnmounted(() => window.removeEventListener("keydown", handleEscape));
         <button type="button" aria-label="關閉作品集" @click="closeCollection">×</button>
       </div>
 
-      <div class="collection-stage" :class="{ 'is-focused': selectedCard }" @click.self="clearSelection">
+      <div class="collection-stage" :class="{ 'is-focused': selectedCard }">
         <button
           v-for="card in portfolioCards"
           :key="card.id"
@@ -70,7 +66,6 @@ onUnmounted(() => window.removeEventListener("keydown", handleEscape));
           class="portfolio-card"
           :class="[`portfolio-card--${card.index}`, `tone--${card.tone}`, { 'is-selected': selectedId === card.id }]"
           :aria-pressed="selectedId === card.id"
-          :aria-label="`查看 ${card.title}`"
           @click="focusCard(card.id)"
         >
           <span class="portfolio-card__visual"><span></span></span>
@@ -79,13 +74,12 @@ onUnmounted(() => window.removeEventListener("keydown", handleEscape));
         </button>
 
         <Transition name="project-note">
-          <aside v-if="selectedCard" class="project-note" aria-live="polite">
+          <aside v-if="selectedCard" class="project-note">
             <p>{{ selectedCard.index }} / WORK IN PROGRESS</p>
             <h2>{{ selectedCard.title }}</h2>
             <span>{{ selectedCard.summary }}</span>
             <a v-if="selectedCard.href" :href="selectedCard.href" target="_blank" rel="noreferrer">再點一次作品卡前往作品 ↗</a>
             <em v-else>短簡介與作品連結將於下一步設定</em>
-            <button type="button" @click="clearSelection">回到全部作品</button>
           </aside>
         </Transition>
       </div>
