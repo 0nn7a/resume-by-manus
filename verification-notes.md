@@ -80,3 +80,6 @@ Experience 內容驗證：已以使用者指定版本取代前端開發、系統
 
 
 GitHub 權限詳情：`gh api repos/0nn7a/resume-by-manus` 回傳 repository 為 private、default branch 為 `main`，目前整合帳號 permissions 為 `admin: true`、`maintain: true`、`push: true`，因此具備首次推送與設定 Pages 所需的 repository 寫入權限。本輪尚未執行 push。
+
+
+GitHub 首次推送與 Pages 檢查（2026-08-28）：本地 commit `7eb502b` 已成功推送至 `https://github.com/0nn7a/resume-by-manus.git` 的 `main` 分支。Actions workflow `Deploy resume to GitHub Pages` 已被觸發；Build 與 Install dependencies 成功，但在 `actions/configure-pages@v5` 失敗，GitHub 回傳 `Get Pages site failed`，表示 repository 尚未啟用並設定為使用 GitHub Actions 建置 Pages。讀取 Pages API 亦回傳 403 `Resource not accessible by integration`，目前無法由此整合直接啟用 Pages。尚未產生實際 Pages 部署網址。

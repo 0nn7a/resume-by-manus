@@ -228,8 +228,8 @@
 
 # GitHub 首次推送與 Pages 部署
 
-- [ ] 將細節內文中的全形／統一改為半形 `/`。
-- [ ] 確認本地 main、GitHub Actions workflow 與遠端 repository 狀態。
-- [ ] 依使用者授權首次 push 到 `0nn7a/resume-by-manus` 的 main 分支。
-- [ ] 檢查 Actions 執行結果與 GitHub Pages 實際部署網址。
-- [ ] 保存同步版本並回報部署狀態。
+- [x] 將細節內文中的全形／統一改為半形 `/`。
+- [x] 確認本地 main、GitHub Actions workflow 與遠端 repository 狀態。
+- [x] 依使用者授權首次 push 到 `0nn7a/resume-by-manus` 的 main 分支。
+- [x] 檢查 Actions 執行結果與 GitHub Pages 實際部署網址（Pages 尚未啟用，尚未產生網址）。
+- [x] 保存同步版本並回報部署狀態。
