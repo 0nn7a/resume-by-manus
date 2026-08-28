@@ -95,18 +95,12 @@ onUnmounted(() => {
           <span class="portfolio-card__visual">
             <img v-if="card.image" :src="card.image" :alt="card.title" />
             <span v-if="selectedId === card.id" class="portfolio-card__link-cue" aria-hidden="true">
-              <ExternalLink :size="22" :stroke-width="1.8" />
+              <ExternalLink class="portfolio-card__link-icon" :size="26" :stroke-width="1.8" />
+              <span class="portfolio-card__summary">{{ card.summary }}</span>
             </span>
           </span>
         </button>
 
-        <Transition name="project-note">
-          <aside v-if="selectedCard" class="project-note" aria-live="polite">
-            <span class="project-note__summary">
-              <span class="project-note__copy">{{ selectedCard.summary }}</span>
-            </span>
-          </aside>
-        </Transition>
       </div>
 
       <button class="collection-overlay__close" type="button" aria-label="關閉作品集" @click="closeCollection"><X :size="16" :stroke-width="1.8" aria-hidden="true" /></button>
