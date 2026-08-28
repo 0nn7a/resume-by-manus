@@ -95,7 +95,7 @@ onUnmounted(() => {
           <span class="portfolio-card__visual">
             <img v-if="card.image" :src="card.image" :alt="card.title" />
             <span v-if="selectedId === card.id" class="portfolio-card__link-cue" aria-hidden="true">
-              <ExternalLink class="portfolio-card__link-icon" :size="26" :stroke-width="1.8" />
+              <ExternalLink class="portfolio-card__link-icon" :size="20" :stroke-width="1.8" />
               <span class="portfolio-card__summary">{{ card.summary }}</span>
             </span>
           </span>

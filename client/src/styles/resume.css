@@ -118,21 +118,22 @@ a { color: inherit; text-decoration: none; }
 .portfolio-card:hover { box-shadow: 0 0.42rem 0.9rem rgba(35, 29, 34, 0.1), 0 1.45rem 2.1rem rgba(35, 29, 34, 0.17); }
 .portfolio-card__visual { position: absolute; inset: 0; display: block; overflow: hidden; border-radius: inherit; }
 .portfolio-card__visual::after { position: absolute; z-index: 1; inset: 0; border-radius: inherit; background: rgba(18, 16, 20, 0.7); content: ""; opacity: 0; transition: opacity 180ms cubic-bezier(0.23, 1, 0.32, 1); }
-.portfolio-card__link-cue { position: absolute; z-index: 2; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.58rem; padding: 1.2rem; color: #fff; opacity: 0; text-align: center; transform: scale(0.94); transition: opacity 180ms cubic-bezier(0.23, 1, 0.32, 1), transform 180ms cubic-bezier(0.23, 1, 0.32, 1); }
-.portfolio-card__summary { max-width: calc(100% - 1rem); color: #fff; font-family: "Noto Sans TC", sans-serif; font-size: clamp(0.72rem, 1.1vw, 0.9rem); font-weight: 650; line-height: 1.55; text-shadow: 0 1px 0.45rem rgba(0, 0, 0, 0.22); }
+.portfolio-card__link-cue { position: absolute; z-index: 2; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.22rem; padding: 0.55rem; color: #fff; opacity: 0; text-align: center; transform: scale(0.94); transition: opacity 180ms cubic-bezier(0.23, 1, 0.32, 1), transform 180ms cubic-bezier(0.23, 1, 0.32, 1); }
+.portfolio-card__link-icon { width: 0.62rem; height: 0.62rem; }
+.portfolio-card__summary { max-width: calc(100% - 0.45rem); color: #fff; font-family: "Noto Sans TC", sans-serif; font-size: clamp(0.42rem, 0.52vw, 0.48rem); font-weight: 650; line-height: 1.35; text-shadow: 0 1px 0.45rem rgba(0, 0, 0, 0.22); }
 .portfolio-card.is-selected:hover .portfolio-card__visual::after, .portfolio-card.is-selected:focus-visible .portfolio-card__visual::after { opacity: 1; }
 .portfolio-card.is-selected:hover .portfolio-card__link-cue, .portfolio-card.is-selected:focus-visible .portfolio-card__link-cue { opacity: 1; transform: scale(1); }
 .portfolio-card.tone--linen, .portfolio-card.tone--mist, .portfolio-card.tone--dawn, .portfolio-card.tone--moss, .portfolio-card.tone--seaside { background: transparent; }
 .portfolio-card__visual::before { display: none; }
 .portfolio-card__visual img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.portfolio-card--01 { z-index: 7; top: 4%; left: 6%; transform: none; animation-delay: 60ms; }
-.portfolio-card--02 { z-index: 6; top: 9%; left: 37%; transform: none; animation-delay: 110ms; }
-.portfolio-card--03 { z-index: 5; top: 3%; left: 68%; transform: none; animation-delay: 160ms; }
-.portfolio-card--04 { z-index: 4; top: 52%; left: 21%; transform: none; animation-delay: 210ms; }
-.portfolio-card--05 { z-index: 3; top: 46%; left: 53%; transform: none; animation-delay: 260ms; }
+.portfolio-card--01 { z-index: 7; top: 8%; left: 50%; margin-left: -14.1rem; transform: rotate(-8deg); animation-delay: 60ms; }
+.portfolio-card--02 { z-index: 6; top: 4%; left: 50%; margin-left: -5.55rem; transform: rotate(3deg); animation-delay: 110ms; }
+.portfolio-card--03 { z-index: 5; top: 8%; left: 50%; margin-left: 3rem; transform: rotate(10deg); animation-delay: 160ms; }
+.portfolio-card--04 { z-index: 4; top: 51%; left: 50%; margin-left: -9.9rem; transform: rotate(-6deg); animation-delay: 210ms; }
+.portfolio-card--05 { z-index: 3; top: 48%; left: 50%; margin-left: -1.35rem; transform: rotate(6deg); animation-delay: 260ms; }
 .collection-stage.is-focused .portfolio-card:not(.is-selected) { filter: blur(5px) saturate(0.72); opacity: 0.28; pointer-events: none; cursor: default; }
 .collection-stage__backdrop { z-index: 1; }
-.collection-stage .portfolio-card.is-selected { z-index: 10; top: 50%; right: auto; bottom: auto; left: 50%; filter: none; opacity: 1; transform: translate(-50%, -50%) rotate(0deg) scale(2.1); box-shadow: 0 0.55rem 1rem rgba(35, 29, 34, 0.1), 0 1.85rem 2.55rem rgba(35, 29, 34, 0.19); }
+.collection-stage .portfolio-card.is-selected { z-index: 10; top: 50%; right: auto; bottom: auto; left: 50%; margin-left: 0; filter: none; opacity: 1; transform: translate(-50%, -50%) rotate(0deg) scale(2.1); box-shadow: 0 0.55rem 1rem rgba(35, 29, 34, 0.1), 0 1.85rem 2.55rem rgba(35, 29, 34, 0.19); }
 .collection-overlay__close { position: fixed; z-index: 50; right: auto; bottom: max(1rem, env(safe-area-inset-bottom, 0px) + 0.7rem); left: 50%; display: grid; width: 3rem; height: 2.6rem; margin: 0; padding: 0; place-items: center; border: 1px solid rgba(255,255,255,0.07); border-radius: 99px; background: #202022; color: #fcfafb; cursor: pointer; transform: translateX(-50%); transition: transform 180ms cubic-bezier(0.23, 1, 0.32, 1), background 180ms cubic-bezier(0.23, 1, 0.32, 1); }
 .collection-overlay__close svg { display: block; }
 .collection-overlay__close:hover { transform: translateX(-50%) scale(0.94); }
@@ -169,11 +170,11 @@ a { color: inherit; text-decoration: none; }
   .collection-overlay { padding: 1.2rem 1rem calc(4.8rem + env(safe-area-inset-bottom, 0px)); }
   .collection-stage { width: 100%; height: min(33rem, 100%); margin: 0 auto; }
   .portfolio-card { width: min(10.25rem, 32vw); aspect-ratio: 2 / 3; height: auto; border-radius: 0.82rem; }
-  .portfolio-card--01 { z-index: 7; top: 4%; left: 2%; }
-  .portfolio-card--02 { z-index: 6; top: 9%; left: 35%; }
-  .portfolio-card--03 { z-index: 5; top: 3%; left: 68%; }
-  .portfolio-card--04 { z-index: 4; top: 53%; left: 16%; }
-  .portfolio-card--05 { z-index: 3; top: 47%; left: 54%; }
+  .portfolio-card--01 { z-index: 7; top: 8%; left: 50%; margin-left: -10.25rem; transform: rotate(-7deg); }
+  .portfolio-card--02 { z-index: 6; top: 4%; left: 50%; margin-left: -3.8rem; transform: rotate(2deg); }
+  .portfolio-card--03 { z-index: 5; top: 8%; left: 50%; margin-left: 2.65rem; transform: rotate(8deg); }
+  .portfolio-card--04 { z-index: 4; top: 52%; left: 50%; margin-left: -7.3rem; transform: rotate(-5deg); }
+  .portfolio-card--05 { z-index: 3; top: 49%; left: 50%; margin-left: 0.2rem; transform: rotate(5deg); }
   .collection-stage .portfolio-card.is-selected { transform: translate(-50%, -50%) rotate(0deg) scale(1.9); }
   .bottom-nav { bottom: max(0.8rem, env(safe-area-inset-bottom, 0px) + 0.55rem); }
   .bottom-nav a { width: 2.18rem; height: 2.18rem; font-size: 1.08rem; }
