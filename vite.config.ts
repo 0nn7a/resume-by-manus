@@ -17,6 +17,9 @@ export default defineConfig({
     outDir: "../dist",
     emptyOutDir: true,
   },
+  server: {
+    allowedHosts: ["5173-in5cctddlwcmnfns4yynh-4c91bfc5.sg1.manus.computer"],
+  },
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./client/src", import.meta.url)),
