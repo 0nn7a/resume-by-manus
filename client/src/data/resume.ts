@@ -73,9 +73,9 @@ export const experience: Experience[] = [
       {
         title: "前端開發",
         points: [
-          "熟悉原生 JavaScript／jQuery / Vue3 Component（+VueRouter, Pinia）等技術",
+          "熟悉原生 JavaScript/jQuery / Vue3 Component（+VueRouter, Pinia）等技術",
           "RWD 響應式切版（Bootstrap、Tailwind CSS）",
-          "復用型組件設計（如前後台 Layout、插槽表格、全站 Toast／Dialog）",
+          "復用型組件設計（如前後台 Layout、插槽表格、全站 Toast/Dialog）",
           "RESTful API 串接與後端協作",
           "CI/CD 流程文件與部署配合",
         ],

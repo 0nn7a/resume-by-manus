@@ -224,3 +224,12 @@
 - [x] 下修中文標題、職稱與內文的粗體字重，維持層級但避免過厚。
 - [x] 檢查同步後 GitHub repository 的存取權限、分支與檔案狀態。
 - [x] 完成排版、正式建置與預覽驗證，保存更新版本。
+
+
+# GitHub 首次推送與 Pages 部署
+
+- [ ] 將細節內文中的全形／統一改為半形 `/`。
+- [ ] 確認本地 main、GitHub Actions workflow 與遠端 repository 狀態。
+- [ ] 依使用者授權首次 push 到 `0nn7a/resume-by-manus` 的 main 分支。
+- [ ] 檢查 Actions 執行結果與 GitHub Pages 實際部署網址。
+- [ ] 保存同步版本並回報部署狀態。

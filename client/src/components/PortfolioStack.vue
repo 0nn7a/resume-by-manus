@@ -77,7 +77,7 @@ onUnmounted(() => {
     <section v-if="isOpen" class="collection-overlay" role="dialog" aria-modal="true" aria-label="五張作品卡">
       <button class="collection-overlay__backdrop" type="button" aria-label="關閉目前作品" @click="handleBackdropClick"></button>
       <div class="collection-overlay__bar">
-        <p>SELECTED WORKS <span>／ 05</span></p>
+        <p>SELECTED WORKS <span>/ 05</span></p>
         <button type="button" aria-label="關閉作品集" @click="closeCollection">×</button>
       </div>
 
