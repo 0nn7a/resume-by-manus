@@ -1,6 +1,8 @@
 /* Design system: Quiet Personal Index mirrors the supplied RWD references through cloud-white space, a narrow human-scale content island, soft rounded card gestures, and a fixed ink-black capsule navigator. */
 /* Quiet Personal Index: editorial whitespace, tactile image cards, and unmistakable section hierarchy. */
 :root {
+  --visual-viewport-height: 100vh;
+  --visual-viewport-top: 0px;
   color: #242425;
   background: #fcfafb;
   font-family: "DM Sans", "Noto Sans TC", sans-serif;
@@ -23,8 +25,8 @@ button { border: 0; }
 a { color: inherit; text-decoration: none; }
 
 .quiet-resume { position: relative; min-height: 100vh; min-height: 100dvh; padding: clamp(5.1rem, 8vh, 6.5rem) 1.25rem 9rem; background: #fcfafb; }
-.quiet-resume::before { position: fixed; z-index: 10; top: calc(-1 * env(safe-area-inset-top, 0px)); right: 0; left: 0; height: calc(clamp(6rem, 13vh, 9rem) + env(safe-area-inset-top, 0px)); height: calc(clamp(6rem, 13dvh, 9rem) + env(safe-area-inset-top, 0px)); background: linear-gradient(to bottom, #fcfafb 0%, rgba(252,250,251,0.84) 42%, rgba(252,250,251,0.48) 70%, rgba(252,250,251,0) 100%); content: ""; opacity: 0.98; pointer-events: none; -webkit-backdrop-filter: blur(8px) saturate(0.9); backdrop-filter: blur(8px) saturate(0.9); -webkit-mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,0.72) 45%, rgba(0,0,0,0.28) 75%, transparent 100%); mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,0.72) 45%, rgba(0,0,0,0.28) 75%, transparent 100%); }
-.quiet-resume::after { position: fixed; z-index: 10; right: 0; bottom: calc(-1 * env(safe-area-inset-bottom, 0px)); left: 0; height: calc(clamp(7rem, 18vh, 11rem) + env(safe-area-inset-bottom, 0px)); height: calc(clamp(7rem, 18dvh, 11rem) + env(safe-area-inset-bottom, 0px)); background: linear-gradient(to bottom, rgba(252,250,251,0), rgba(252,250,251,0.76) 57%, #fcfafb 100%); content: ""; opacity: 0.96; pointer-events: none; -webkit-backdrop-filter: blur(3px) saturate(0.94); backdrop-filter: blur(3px) saturate(0.94); -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.45) 48%, #000 100%); mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.45) 48%, #000 100%); }
+.quiet-resume::before { position: fixed; z-index: 10; top: var(--visual-viewport-top); right: 0; left: 0; height: calc(clamp(6rem, 13vh, 9rem) + env(safe-area-inset-top, 0px)); height: calc(clamp(6rem, 13dvh, 9rem) + env(safe-area-inset-top, 0px)); background: linear-gradient(to bottom, #fcfafb 0%, rgba(252,250,251,0.84) 42%, rgba(252,250,251,0.48) 70%, rgba(252,250,251,0) 100%); content: ""; opacity: 0.98; pointer-events: none; -webkit-backdrop-filter: blur(8px) saturate(0.9); backdrop-filter: blur(8px) saturate(0.9); -webkit-mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,0.72) 45%, rgba(0,0,0,0.28) 75%, transparent 100%); mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,0.72) 45%, rgba(0,0,0,0.28) 75%, transparent 100%); }
+.quiet-resume::after { position: fixed; z-index: 10; top: calc(var(--visual-viewport-top) + var(--visual-viewport-height) - clamp(7rem, 18dvh, 11rem)); right: 0; bottom: auto; left: 0; height: calc(clamp(7rem, 18vh, 11rem) + env(safe-area-inset-bottom, 0px)); height: calc(clamp(7rem, 18dvh, 11rem) + env(safe-area-inset-bottom, 0px)); background: linear-gradient(to bottom, rgba(252,250,251,0), rgba(252,250,251,0.76) 57%, #fcfafb 100%); content: ""; opacity: 0.96; pointer-events: none; -webkit-backdrop-filter: blur(3px) saturate(0.94); backdrop-filter: blur(3px) saturate(0.94); -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.45) 48%, #000 100%); mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.45) 48%, #000 100%); }
 .page-shell { width: min(100%, 38rem); margin: 0 auto; }
 
 .intro__visuals { display: flex; justify-content: flex-end; align-items: center; min-height: 10.15rem; }
@@ -173,7 +175,7 @@ a { color: inherit; text-decoration: none; }
   .resume-section { padding: 2.9rem 0 2.45rem; }
   .simple-list__item, .credential-list__item { display: block; }
   .simple-list__period, .credential-list__period { margin-bottom: 0.4rem; }
-  .quiet-resume::after { bottom: calc(-1 * env(safe-area-inset-bottom, 0px)); height: calc(8.5rem + env(safe-area-inset-bottom, 0px)); }
+  .quiet-resume::after { top: calc(var(--visual-viewport-top) + var(--visual-viewport-height) - 8.5rem); bottom: auto; height: calc(8.5rem + env(safe-area-inset-bottom, 0px)); }
   .collection-overlay { padding: 1.2rem; }
   .collection-stage { width: 100%; height: 36rem; margin: 0 auto; }
   .portfolio-card { width: min(10.5rem, 38vw); aspect-ratio: 2 / 3; height: auto; border-radius: 1.25rem; }
