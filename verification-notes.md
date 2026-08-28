@@ -62,3 +62,9 @@ DOM 量測：meta description 已為「林家淇 Nana／0nn，全端工程師履
 
 
 最終 2:3 展開層量測：五張作品卡的計算樣式皆為 `aspect-ratio: 2 / 3`，寬度約 281.6px、高度約 422.4px（當前桌面 viewport）；最下方卡片調整後底部約 724–730px，位於 stage 底部 736px 之內。旋轉後外接框會自然超出 stage 左右少量像素，但未被裁切；html/body 仍為 `overflow: hidden`。
+
+
+GitHub Pages 前置檢查（2026-08-28）：`https://github.com/0nn7a/resume-by-manus` 可公開存取，頁面標示為 Public，但目前顯示 `This repository is empty`，尚無檔案、分支或 Actions workflow。因此目前還無法直接驗證 Pages；需先將本專案內容推送到 repository，並再確認 Actions 權限與 Pages 的 Build and deployment source。
+
+
+本輪最終驗證：桌面與 390px 手機首屏均確認上緣柔焦比前一版更深、延伸範圍更長，但導覽列與文字仍清楚可見；自介四段以獨立段落呈現，段落間空行保留。正式建置 `pnpm run build` 成功。GitHub repository 已確認為公開但空白，專案本地目前使用 WebDev origin、分支為 `main`，尚未推送到使用者 repository。
