@@ -1,6 +1,8 @@
 <!-- Design system: three tactile preview cards unfold into one five-card collection, echoing a quiet personal photo index with soft motion and no fabricated project content. -->
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref } from "vue";
+/** Portfolio interaction: pure image cards, quiet overlay, and card-only pointer cues. */
+import { computed, onMounted, onUnmounted, ref, watch } from "vue";
+import { ExternalLink } from "lucide-vue-next";
 import { portfolioCards } from "@/data/resume";
 
 const isOpen = ref(false);
@@ -37,12 +39,22 @@ function handleBackdropClick() {
   if (selectedId.value) clearSelection();
 }
 
+function setPageScrollLock(locked: boolean) {
+  document.documentElement.classList.toggle("collection-is-open", locked);
+  document.body.classList.toggle("collection-is-open", locked);
+}
+
 function handleEscape(event: KeyboardEvent) {
   if (event.key === "Escape" && isOpen.value) closeCollection();
 }
 
+watch(isOpen, (open) => setPageScrollLock(open));
+
 onMounted(() => window.addEventListener("keydown", handleEscape));
-onUnmounted(() => window.removeEventListener("keydown", handleEscape));
+onUnmounted(() => {
+  window.removeEventListener("keydown", handleEscape);
+  setPageScrollLock(false);
+});
 </script>
 
 <template>
@@ -83,14 +95,15 @@ onUnmounted(() => window.removeEventListener("keydown", handleEscape));
         >
           <span class="portfolio-card__visual">
             <img v-if="card.image" :src="card.image" :alt="card.title" />
+            <span v-if="selectedId === card.id" class="portfolio-card__link-cue" aria-hidden="true">
+              <ExternalLink :size="22" :stroke-width="1.8" />
+            </span>
           </span>
         </button>
 
         <Transition name="project-note">
           <aside v-if="selectedCard" class="project-note" aria-live="polite">
             <span class="project-note__summary">
-              <a v-if="selectedCard.href" :href="selectedCard.href" target="_blank" rel="noreferrer" aria-label="開啟作品連結">↗</a>
-              <span v-else class="project-note__link-placeholder" aria-hidden="true">↗</span>
               <span class="project-note__copy">{{ selectedCard.summary }}</span>
             </span>
           </aside>

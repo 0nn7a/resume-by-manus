@@ -30,11 +30,19 @@ const avatarUrl = "https://files.manuscdn.com/user_upload_by_module/session_file
       </header>
 
       <div class="resume-index">
-        <ResumeSection id="experience" title="Experience" note="工作經驗">
+        <ResumeSection id="experience" title="Experience" note="工作經驗" :show-header="false">
+          <header class="resume-section__header" aria-label="Experience">
+            <h2>Experience</h2>
+            <p>工作經驗</p>
+          </header>
           <ExperienceEntry v-for="entry in experience" :key="entry.company" :entry="entry" />
         </ResumeSection>
 
-        <ResumeSection id="education" title="Education" note="學歷">
+        <ResumeSection id="education" title="Education" note="學歷" :show-header="false">
+          <header class="resume-section__header" aria-label="Education">
+            <h2>Education</h2>
+            <p>學歷</p>
+          </header>
           <div class="simple-list">
             <article v-for="item in education" :key="item.school" class="simple-list__item">
               <p class="simple-list__period">{{ item.interval }}</p>
@@ -46,13 +54,21 @@ const avatarUrl = "https://files.manuscdn.com/user_upload_by_module/session_file
           </div>
         </ResumeSection>
 
-        <ResumeSection id="skills" title="Skills" note="技能與工具">
+        <ResumeSection id="skills" title="Skills" note="技能與工具" :show-header="false">
+          <header class="resume-section__header" aria-label="Skills">
+            <h2>Skills</h2>
+            <p>技能與工具</p>
+          </header>
           <div class="skills-list">
             <SkillGroup v-for="group in skills" :key="group.label" :group="group" />
           </div>
         </ResumeSection>
 
-        <ResumeSection id="credentials" title="Certification" note="資格認證">
+        <ResumeSection id="credentials" title="Certification" note="資格認證" :show-header="false">
+          <header class="resume-section__header" aria-label="Certification">
+            <h2>Certification</h2>
+            <p>資格認證</p>
+          </header>
           <div class="credential-list">
             <article v-for="certificate in certifications" :key="certificate.code" class="credential-list__item">
               <p class="credential-list__period">{{ certificate.interval }}</p>
