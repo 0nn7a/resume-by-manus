@@ -233,3 +233,11 @@
 - [x] 依使用者授權首次 push 到 `0nn7a/resume-by-manus` 的 main 分支。
 - [x] 檢查 Actions 執行結果與 GitHub Pages 實際部署網址（Pages 尚未啟用，尚未產生網址）。
 - [x] 保存同步版本並回報部署狀態。
+
+
+# 斜線空格與公開 Pages 重新檢查
+
+- [ ] 盤點所有可見半形 `/`，確保前後各有且只有一個空格。
+- [ ] 確認 repository 已為 Public、Pages source 為 GitHub Actions，並重新推送修正。
+- [ ] 檢查最新 Actions 執行結果、Pages 實際網址與首頁資產載入。
+- [ ] 完成正式建置與預覽驗證，保存更新版本。
