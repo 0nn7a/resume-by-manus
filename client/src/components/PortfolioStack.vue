@@ -9,6 +9,55 @@ const isOpen = ref(false);
 const selectedId = ref<string | null>(null);
 const previewCards = computed(() => portfolioCards.slice(0, 3));
 const selectedCard = computed(() => portfolioCards.find((card) => card.id === selectedId.value) ?? null);
+let cardPressTimer: number | null = null;
+let pressedCardId: string | null = null;
+let suppressNextCardClick = false;
+let cardPressStartedAt = 0;
+const longPressThreshold = 450;
+
+function clearCardPressTimer() {
+  if (cardPressTimer !== null) {
+    window.clearTimeout(cardPressTimer);
+    cardPressTimer = null;
+  }
+}
+
+function startCardPress(id: string) {
+  clearCardPressTimer();
+  pressedCardId = id;
+  suppressNextCardClick = false;
+  cardPressStartedAt = performance.now();
+  cardPressTimer = window.setTimeout(() => {
+    suppressNextCardClick = true;
+  }, longPressThreshold);
+}
+
+function endCardPress(id: string) {
+  if (pressedCardId !== id) return;
+  const pressDuration = performance.now() - cardPressStartedAt;
+  if (pressDuration >= longPressThreshold) suppressNextCardClick = true;
+  clearCardPressTimer();
+  pressedCardId = null;
+}
+
+function cancelCardPress() {
+  clearCardPressTimer();
+  pressedCardId = null;
+  suppressNextCardClick = true;
+}
+
+function handleCardClick(id: string) {
+  if (suppressNextCardClick) {
+    suppressNextCardClick = false;
+    return;
+  }
+  focusCard(id);
+}
+
+function handleCardContextMenu(event: MouseEvent) {
+  event.preventDefault();
+  cancelCardPress();
+}
 
 function openCollection() {
   selectedId.value = null;
@@ -53,6 +102,7 @@ watch(isOpen, (open) => setPageScrollLock(open));
 onMounted(() => window.addEventListener("keydown", handleEscape));
 onUnmounted(() => {
   window.removeEventListener("keydown", handleEscape);
+  clearCardPressTimer();
   setPageScrollLock(false);
 });
 </script>
@@ -90,10 +140,15 @@ onUnmounted(() => {
           :class="[`portfolio-card--${card.index}`, `tone--${card.tone}`, { 'is-selected': selectedId === card.id }]"
           :aria-pressed="selectedId === card.id"
           :aria-label="`查看 ${card.title}`"
-          @click="focusCard(card.id)"
+          @pointerdown="startCardPress(card.id)"
+          @pointerup="endCardPress(card.id)"
+          @pointercancel="cancelCardPress"
+          @pointerleave="cancelCardPress"
+          @contextmenu="handleCardContextMenu"
+          @click="handleCardClick(card.id)"
         >
           <span class="portfolio-card__visual">
-            <img v-if="card.image" :src="card.image" :alt="card.title" />
+            <img v-if="card.image" :src="card.image" :alt="card.title" draggable="false" />
             <span v-if="selectedId === card.id" class="portfolio-card__link-cue" aria-hidden="true">
               <ExternalLink class="portfolio-card__link-icon" :size="20" :stroke-width="1.8" />
               <span class="portfolio-card__summary">{{ card.summary }}</span>
