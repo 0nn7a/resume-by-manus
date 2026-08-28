@@ -101,3 +101,12 @@ Mobile Safari 二次修正版部署（2026-08-28）：新增 `viewport-fit=cover
 
 
 Mobile Safari 二次修正公開驗證（2026-08-28）：最新 commit `2520c4f` 已成功推送；Actions run `33145030155` 的 build／deploy 均成功。公開頁面 `https://0nn7a.github.io/resume-by-manus/` 已以 cache-busting URL 重新開啟，確認內容與資產正常。最新實作同時包含 `viewport-fit=cover`、`visualViewport` 高度／offset 同步、safe-area 修正與雲白 theme-color；實機 Safari 若仍有偏移，應優先取得裝置截圖，以便對照 Safari 的 visual viewport 實際邊界。
+
+
+Manus favicon 資產來源（2026-08-28）：由官方網域 `https://manus.im/favicon.ico` 取得，HTTP 200、ICO 內含 16×16 與 32×32 RGBA PNG 圖示；已複製至 `client/public/favicon.ico`，並將原本照片 favicon 替換為 `/favicon.ico`。GitHub Pages 公開網址為 `https://0nn7a.github.io/resume-by-manus/`。
+
+
+導覽列與 Safari 柔焦替代方案（2026-08-28）：已將 BottomNav 改回底部並使用 `max(..., env(safe-area-inset-bottom) + ...)` 保留手機安全區；移除 App.vue 的 visualViewport listener，改在 main 內放置獨立 `.viewport-fade--top`／`.viewport-fade--bottom` fixed overlay，避免 `.quiet-resume` 偽元素與 Safari viewport 計算互相影響。390×844 與 1280×720 預覽均顯示導覽列位置正常、內容無遮擋；Safari 實機仍需確認底部工具列與 Home Indicator 行為。
+
+
+導覽列與 Manus favicon 公開驗證（2026-08-28）：最新 Pages URL 已載入，底部 capsule 導覽列（Top / Experience / Education / Skills / Bottom）可見，首頁內容與資產正常。待以 HTTP 回應確認 `/favicon.ico` 已公開供瀏覽器讀取；Safari 柔焦仍未能在 sandbox 直接重現，因此本輪改用獨立 fixed overlay，避免 visualViewport 計算與根容器偽元素互相影響。

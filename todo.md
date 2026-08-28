@@ -261,7 +261,7 @@
 
 # 導覽列回到底部、Safari 柔焦與 Manus favicon
 
-- [ ] 將導覽列從上方移回頁面下方，並保留手機底部安全區。
-- [ ] 重新檢查 Safari 柔焦問題，避免只用 visualViewport 高度猜測固定邊界。
-- [ ] 尋找並採用可公開載入的 Manus 官方 favicon／logo 資產。
-- [ ] 完成手機／桌面預覽、正式建置、GitHub Pages 部署與版本保存。
+- [x] 將導覽列從上方移回頁面下方，並保留手機底部安全區。
+- [x] 重新檢查 Safari 柔焦問題，避免只用 visualViewport 高度猜測固定邊界。
+- [x] 尋找並採用可公開載入的 Manus 官方 favicon／logo 資產。
+- [x] 完成手機／桌面預覽、正式建置、GitHub Pages 部署與版本保存。
