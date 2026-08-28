@@ -257,3 +257,11 @@
 - [x] 改用更直接的固定 viewport 柔焦層，避免安全區計算造成白邊停在工具列上方。
 - [x] 重新建置、推送並驗證 GitHub Pages 與手機 viewport。
 - [x] 保存修正版並說明仍需實機確認的 Safari 限制。
+
+
+# 導覽列回到底部、Safari 柔焦與 Manus favicon
+
+- [ ] 將導覽列從上方移回頁面下方，並保留手機底部安全區。
+- [ ] 重新檢查 Safari 柔焦問題，避免只用 visualViewport 高度猜測固定邊界。
+- [ ] 尋找並採用可公開載入的 Manus 官方 favicon／logo 資產。
+- [ ] 完成手機／桌面預覽、正式建置、GitHub Pages 部署與版本保存。

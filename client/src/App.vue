@@ -7,37 +7,15 @@ import ResumeSection from "@/components/ResumeSection.vue";
 import SkillGroup from "@/components/SkillGroup.vue";
 import { certifications, education, experience, profile, skills } from "@/data/resume";
 import { BookOpen, CakeSlice, Github, Mail, Sparkles } from "lucide-vue-next";
-import { onMounted, onUnmounted } from "vue";
 
 const avatarUrl = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663030849489/oAJLPvfVgHVhbtVA.jpeg";
-
-function syncVisualViewport() {
-  const viewport = window.visualViewport;
-  const height = viewport?.height ?? window.innerHeight;
-  const top = viewport?.offsetTop ?? 0;
-
-  document.documentElement.style.setProperty("--visual-viewport-height", `${height}px`);
-  document.documentElement.style.setProperty("--visual-viewport-top", `${top}px`);
-}
-
-onMounted(() => {
-  syncVisualViewport();
-  window.addEventListener("resize", syncVisualViewport, { passive: true });
-  window.addEventListener("orientationchange", syncVisualViewport, { passive: true });
-  window.visualViewport?.addEventListener("resize", syncVisualViewport, { passive: true });
-  window.visualViewport?.addEventListener("scroll", syncVisualViewport, { passive: true });
-});
-
-onUnmounted(() => {
-  window.removeEventListener("resize", syncVisualViewport);
-  window.removeEventListener("orientationchange", syncVisualViewport);
-  window.visualViewport?.removeEventListener("resize", syncVisualViewport);
-  window.visualViewport?.removeEventListener("scroll", syncVisualViewport);
-});
 </script>
 
 <template>
   <main id="top" class="quiet-resume">
+    <div class="viewport-fade viewport-fade--top" aria-hidden="true"></div>
+    <div class="viewport-fade viewport-fade--bottom" aria-hidden="true"></div>
+
     <div class="page-shell">
       <header class="intro" aria-label="林家淇的個人介紹">
         <div class="intro__visuals">
