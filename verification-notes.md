@@ -110,3 +110,6 @@ Manus favicon 資產來源（2026-08-28）：由官方網域 `https://manus.im/f
 
 
 導覽列與 Manus favicon 公開驗證（2026-08-28）：最新 Pages URL 已載入，底部 capsule 導覽列（Top / Experience / Education / Skills / Bottom）可見，首頁內容與資產正常。待以 HTTP 回應確認 `/favicon.ico` 已公開供瀏覽器讀取；Safari 柔焦仍未能在 sandbox 直接重現，因此本輪改用獨立 fixed overlay，避免 visualViewport 計算與根容器偽元素互相影響。
+
+
+導覽列陰影移除驗證（2026-08-28）：已移除 `.bottom-nav` 的 `box-shadow`，保留深色 capsule、細邊框與 hover／active 互動。390×844 與 1280×720 預覽均顯示導覽列邊界更乾淨，手機底部 safe-area 定位仍正常，頁面內容沒有遮擋。
