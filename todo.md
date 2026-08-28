@@ -237,7 +237,7 @@
 
 # 斜線空格與公開 Pages 重新檢查
 
-- [ ] 盤點所有可見半形 `/`，確保前後各有且只有一個空格。
-- [ ] 確認 repository 已為 Public、Pages source 為 GitHub Actions，並重新推送修正。
-- [ ] 檢查最新 Actions 執行結果、Pages 實際網址與首頁資產載入。
-- [ ] 完成正式建置與預覽驗證，保存更新版本。
+- [x] 盤點所有可見半形 `/`，確保前後各有且只有一個空格。
+- [x] 確認 repository 已為 Public、Pages source 為 GitHub Actions，並重新推送修正。
+- [x] 檢查最新 Actions 執行結果、Pages 實際網址與首頁資產載入。
+- [x] 完成正式建置與預覽驗證，保存更新版本。

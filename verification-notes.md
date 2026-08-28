@@ -83,3 +83,6 @@ GitHub 權限詳情：`gh api repos/0nn7a/resume-by-manus` 回傳 repository 為
 
 
 GitHub 首次推送與 Pages 檢查（2026-08-28）：本地 commit `7eb502b` 已成功推送至 `https://github.com/0nn7a/resume-by-manus.git` 的 `main` 分支。Actions workflow `Deploy resume to GitHub Pages` 已被觸發；Build 與 Install dependencies 成功，但在 `actions/configure-pages@v5` 失敗，GitHub 回傳 `Get Pages site failed`，表示 repository 尚未啟用並設定為使用 GitHub Actions 建置 Pages。讀取 Pages API 亦回傳 403 `Resource not accessible by integration`，目前無法由此整合直接啟用 Pages。尚未產生實際 Pages 部署網址。
+
+
+GitHub Pages 成功驗證（2026-08-28）：repository 現已為 Public，Pages API 回傳 `build_type: workflow`、`source.branch: main`，實際網址為 `https://0nn7a.github.io/resume-by-manus/`。最新 workflow `Deploy resume to GitHub Pages`（run 33143222173，commit `abc85a5`）的 build 與 deploy jobs 均成功。瀏覽器開啟實際網址可正常載入 `Nana｜Resume`，並確認自介、Experience 指定條目、半形斜線格式與導覽連結已反映。
