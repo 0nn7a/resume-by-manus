@@ -40,6 +40,7 @@ export const profile = {
   mbti: "INFJ",
   location: "Taipei, Taiwan",
   github: "https://github.com/0nn7a",
+  linkedin: "https://www.linkedin.com/in/eueu0nn/",
   portfolio: "https://www.cake.me/me/0nn/portfolios",
 };
 

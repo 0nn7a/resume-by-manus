@@ -6,7 +6,7 @@ import PortfolioStack from "@/components/PortfolioStack.vue";
 import ResumeSection from "@/components/ResumeSection.vue";
 import SkillGroup from "@/components/SkillGroup.vue";
 import { certifications, education, experience, profile, skills } from "@/data/resume";
-import { BookOpen, CakeSlice, Github, Mail, Sparkles } from "lucide-vue-next";
+import { BookOpen, CakeSlice, Github, Linkedin, Mail, Sparkles } from "lucide-vue-next";
 
 const avatarUrl = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663030849489/oAJLPvfVgHVhbtVA.jpeg";
 </script>
@@ -92,10 +92,11 @@ const avatarUrl = "https://files.manuscdn.com/user_upload_by_module/session_file
           </div>
         </ResumeSection>
 
-        <ResumeSection id="connect" title="保持聯繫" note="Contact">
+        <ResumeSection id="connect" class="resume-section--contact" title="保持聯繫" note="Contact">
           <div class="connect-links">
             <a :href="`mailto:${profile.email}`"><Mail :size="15" :stroke-width="1.8" aria-hidden="true" />{{ profile.email }}</a>
             <a :href="profile.github" target="_blank" rel="noreferrer"><Github :size="15" :stroke-width="1.8" aria-hidden="true" />GitHub ↗</a>
+            <a :href="profile.linkedin" target="_blank" rel="noreferrer"><Linkedin :size="15" :stroke-width="1.8" aria-hidden="true" />LinkedIn ↗</a>
             <a :href="profile.portfolio" target="_blank" rel="noreferrer"><CakeSlice :size="15" :stroke-width="1.8" aria-hidden="true" />Cake Resume ↗</a>
           </div>
         </ResumeSection>

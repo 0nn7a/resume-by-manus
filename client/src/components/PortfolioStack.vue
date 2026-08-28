@@ -2,7 +2,7 @@
 <script setup lang="ts">
 /** Portfolio interaction: pure image cards, quiet overlay, and card-only pointer cues. */
 import { computed, onMounted, onUnmounted, ref, watch } from "vue";
-import { ExternalLink } from "lucide-vue-next";
+import { ExternalLink, X } from "lucide-vue-next";
 import { portfolioCards } from "@/data/resume";
 
 const isOpen = ref(false);
@@ -78,7 +78,6 @@ onUnmounted(() => {
       <button class="collection-overlay__backdrop" type="button" aria-label="關閉目前作品" @click="handleBackdropClick"></button>
       <div class="collection-overlay__bar">
         <p>SELECTED WORKS <span>/ 05</span></p>
-        <button type="button" aria-label="關閉作品集" @click="closeCollection">×</button>
       </div>
 
       <div class="collection-stage" :class="{ 'is-focused': selectedCard }">
@@ -110,7 +109,7 @@ onUnmounted(() => {
         </Transition>
       </div>
 
-      <button class="collection-overlay__close" type="button" @click="closeCollection">關閉 <span>×</span></button>
+      <button class="collection-overlay__close" type="button" aria-label="關閉作品集" @click="closeCollection"><X :size="16" :stroke-width="1.8" aria-hidden="true" /></button>
     </section>
   </Transition>
 </template>
