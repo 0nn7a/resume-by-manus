@@ -67,7 +67,7 @@ onUnmounted(() => {
         :class="[`portfolio-stack__card--${index + 1}`, `tone--${card.tone}`]"
         aria-hidden="true"
       >
-        <span class="portfolio-stack__texture"></span>
+        <img v-if="card.image" :src="card.image" alt="" aria-hidden="true" />
       </span>
       <span class="portfolio-stack__hint">點開作品集</span>
     </button>

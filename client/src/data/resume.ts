@@ -48,11 +48,51 @@ export const profile = {
  * Five records form one collection: the home stack previews the first three records.
  */
 export const portfolioCards: PortfolioCard[] = [
-  { id: "work-01", index: "01", title: "作品待設定 01", summary: "之後可在此填入作品的短簡介。", tone: "linen" },
-  { id: "work-02", index: "02", title: "作品待設定 02", summary: "之後可在此填入作品的短簡介。", tone: "mist" },
-  { id: "work-03", index: "03", title: "作品待設定 03", summary: "之後可在此填入作品的短簡介。", tone: "dawn" },
-  { id: "work-04", index: "04", title: "作品待設定 04", summary: "之後可在此填入作品的短簡介。", tone: "moss" },
-  { id: "work-05", index: "05", title: "作品待設定 05", summary: "之後可在此填入作品的短簡介。", tone: "seaside" },
+  {
+    id: "work-01",
+    index: "01",
+    title: "alpJom 益智遊戲網站",
+    summary: "alpJom 益智遊戲網站",
+    href: "https://0nn7a.github.io/alpjom-web/#/",
+    tone: "linen",
+    image: "https://file.vidhubfile.com/imgtok/post/rkRaTn0/f_001.png",
+  },
+  {
+    id: "work-02",
+    index: "02",
+    title: "醇萃｜一頁式切版練習",
+    summary: "醇萃｜一頁式切版練習",
+    href: "https://0nn7a.github.io/230713-yohaku-layout/",
+    tone: "mist",
+    image: "https://file.vidhubfile.com/imgtok/post/rkRaTn0/f_004.png",
+  },
+  {
+    id: "work-03",
+    index: "03",
+    title: "SPOT｜一頁式切版練習",
+    summary: "SPOT｜一頁式切版練習",
+    href: "https://0nn7a.github.io/230629-thespot-layout/",
+    tone: "dawn",
+    image: "https://file.vidhubfile.com/imgtok/post/rkRaTn0/f_003.png",
+  },
+  {
+    id: "work-04",
+    index: "04",
+    title: "KAKAO Webtoon 網站設計",
+    summary: "KAKAO Webtoon 網站設計",
+    href: "https://0nn7a.github.io/kakaowebtoon/",
+    tone: "moss",
+    image: "https://file.vidhubfile.com/imgtok/post/rkRaTn0/f_002.png",
+  },
+  {
+    id: "work-05",
+    index: "05",
+    title: "接案｜城邦學習月一頁式網站",
+    summary: "接案｜城邦學習月一頁式網站",
+    href: "https://www.cake.me/portfolios/rwd-376bc5",
+    tone: "seaside",
+    image: "https://file.vidhubfile.com/imgtok/post/rkRaTn0/f_005.png",
+  },
 ];
 
 export const highlights = [
