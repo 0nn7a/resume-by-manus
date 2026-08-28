@@ -34,7 +34,7 @@ a { color: inherit; text-decoration: none; }
 .intro__copy h1 { margin: 0 0 1.35rem; font-size: clamp(1.55rem, 3.4vw, 2rem); font-weight: 700; letter-spacing: -0.05em; line-height: 1.12; }
 .intro__copy > p:first-child:not(.intro__eyebrow) { margin-top: 0; }
 .intro__copy > p:not(.intro__eyebrow) { max-width: 36rem; margin: 0; font-family: "Noto Sans TC", sans-serif; font-size: clamp(0.99rem, 1.5vw, 1.1rem); font-weight: 500; letter-spacing: -0.018em; line-height: 1.75; }
-.intro__copy > p + p { margin-top: 1.18rem; }
+.intro__paragraph-break { display: block; height: 1.18rem; content: ""; line-height: 0; }
 
 .resume-index { margin-top: 5.6rem; }
 .resume-section { scroll-margin-top: 2rem; padding: 3.55rem 0 2.9rem; border-top: 1px solid #ebe8e9; }
@@ -167,6 +167,7 @@ a { color: inherit; text-decoration: none; }
   .portfolio-stack__card--2 { margin-left: -2.55rem; }
   .intro__copy { margin-top: -1.3rem; }
   .intro__copy > p:not(.intro__eyebrow) { font-size: 1rem; line-height: 1.72; }
+  .intro__paragraph-break { height: 1.08rem; }
   .intro__eyebrow { gap: 0.18rem 0.3rem; }
   .resume-index { margin-top: 4.2rem; }
   .resume-section { padding: 2.9rem 0 2.45rem; }

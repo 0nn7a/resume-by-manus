@@ -68,3 +68,6 @@ GitHub Pages 前置檢查（2026-08-28）：`https://github.com/0nn7a/resume-by-
 
 
 本輪最終驗證：桌面與 390px 手機首屏均確認上緣柔焦比前一版更深、延伸範圍更長，但導覽列與文字仍清楚可見；自介四段以獨立段落呈現，段落間空行保留。正式建置 `pnpm run build` 成功。GitHub repository 已確認為公開但空白，專案本地目前使用 WebDev origin、分支為 `main`，尚未推送到使用者 repository。
+
+
+自介明確換行驗證：App.vue 已在四個 `<p>` 之間加入三個 `br.intro__paragraph-break`，CSS 以固定高度提供段落間隔（桌面 1.18rem、手機 1.08rem）。桌面與 390px 手機截圖均確認「嗨！我是林家淇。」與後續三段之間都有清楚空行，且內容沒有溢出。
