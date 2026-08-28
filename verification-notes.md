@@ -86,3 +86,9 @@ GitHub 首次推送與 Pages 檢查（2026-08-28）：本地 commit `7eb502b` �
 
 
 GitHub Pages 成功驗證（2026-08-28）：repository 現已為 Public，Pages API 回傳 `build_type: workflow`、`source.branch: main`，實際網址為 `https://0nn7a.github.io/resume-by-manus/`。最新 workflow `Deploy resume to GitHub Pages`（run 33143222173，commit `abc85a5`）的 build 與 deploy jobs 均成功。瀏覽器開啟實際網址可正常載入 `Nana｜Resume`，並確認自介、Experience 指定條目、半形斜線格式與導覽連結已反映。
+
+
+Mobile Safari 柔焦修正驗證：已將 `.quiet-resume` 與柔焦層加入 `100dvh` fallback、`env(safe-area-inset-top)`、`env(safe-area-inset-bottom)` 與底部負邊界；在 390×844 與 375×812 手機 viewport 截圖中，上下白色模糊均延伸至畫面邊緣，導覽列與首屏內容未被遮擋，頁面沒有水平溢出。Chromium viewport 可驗證 CSS 幾何，實際 Safari safe-area 仍建議使用者以實機確認。
+
+
+Safari 柔焦修正部署結果（2026-08-28）：commit `5c720ad` 已成功推送至公開 repository；最新 GitHub Actions run `33143625532` 的 build 與 deploy 均成功。公開頁面 `https://0nn7a.github.io/resume-by-manus/` 已重新載入並確認首頁內容、CSS 與導覽正常。修正包含 `100dvh`、上下 safe-area 延伸與底部負邊界；Chromium 390×844／375×812 viewport 已驗證柔焦貼齊，實際 Safari 建議再以 iPhone 實機確認工具列收合與瀏海安全區。
