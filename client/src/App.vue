@@ -20,8 +20,7 @@ const avatarUrl = "/manus-storage/nana-avatar_2d28ae2e.jpeg";
         </div>
 
         <div class="intro__copy">
-          <p class="intro__eyebrow">{{ profile.alias }} · {{ profile.location }}</p>
-          <h1>嗨，我是 Nana。</h1>
+          <p class="intro__eyebrow">{{ profile.alias }} · {{ profile.location }} · {{ profile.birthday }} · {{ profile.mbti }}</p>
           <p>我是設計背景出身的前端工程師，具 3 年以上企業系統開發經驗。</p>
           <p>
             我習慣主動釐清需求，把細節收乾淨再交付；在時程與品質之間，維持穩定、可溝通的節奏。
@@ -36,9 +35,11 @@ const avatarUrl = "/manus-storage/nana-avatar_2d28ae2e.jpeg";
       </header>
 
       <div class="resume-index">
-        <ResumeSection id="about" title="關於我" note="About Nana">
-          <p class="about-statement">把需求釐清，再把細節交付。</p>
-          <p>{{ profile.summary }}</p>
+        <ResumeSection id="about" title="" note="" :show-header="false">
+          <div class="about-copy">
+            <p class="about-statement">把需求釐清，再把細節交付。</p>
+            <p>{{ profile.summary }}</p>
+          </div>
         </ResumeSection>
 
         <ResumeSection id="experience" title="工作經驗" note="Experience">
@@ -76,7 +77,6 @@ const avatarUrl = "/manus-storage/nana-avatar_2d28ae2e.jpeg";
         </ResumeSection>
 
         <ResumeSection id="connect" title="保持聯繫" note="Contact">
-          <p class="connect-copy">若你正在找重視細節與協作節奏的前端工程師，歡迎和我聊聊。</p>
           <div class="connect-links">
             <a :href="`mailto:${profile.email}`">{{ profile.email }}</a>
             <a :href="profile.github" target="_blank" rel="noreferrer">GitHub ↗</a>

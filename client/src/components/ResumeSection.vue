@@ -4,12 +4,13 @@ defineProps<{
   id: string;
   title: string;
   note?: string;
+  showHeader?: boolean;
 }>();
 </script>
 
 <template>
-  <section :id="id" class="resume-section">
-    <header class="resume-section__header">
+  <section :id="id" class="resume-section" :class="{ 'resume-section--plain': showHeader === false }">
+    <header v-if="showHeader !== false" class="resume-section__header">
       <h2>{{ title }}</h2>
       <p v-if="note">{{ note }}</p>
     </header>

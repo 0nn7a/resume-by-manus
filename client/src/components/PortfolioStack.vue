@@ -31,6 +31,10 @@ function clearSelection() {
   selectedId.value = null;
 }
 
+function handleBackdropClick() {
+  if (selectedId.value) clearSelection();
+}
+
 function handleEscape(event: KeyboardEvent) {
   if (event.key === "Escape" && isOpen.value) closeCollection();
 }
@@ -57,12 +61,14 @@ onUnmounted(() => window.removeEventListener("keydown", handleEscape));
 
   <Transition name="collection">
     <section v-if="isOpen" class="collection-overlay" role="dialog" aria-modal="true" aria-label="五張作品卡">
+      <button class="collection-overlay__backdrop" type="button" aria-label="關閉目前作品" @click="handleBackdropClick"></button>
       <div class="collection-overlay__bar">
         <p>SELECTED WORKS <span>／ 05</span></p>
         <button type="button" aria-label="關閉作品集" @click="closeCollection">×</button>
       </div>
 
-      <div class="collection-stage" :class="{ 'is-focused': selectedCard }" @click.self="clearSelection">
+      <div class="collection-stage" :class="{ 'is-focused': selectedCard }">
+        <button class="collection-stage__backdrop" type="button" aria-label="關閉目前作品" @click="handleBackdropClick"></button>
         <button
           v-for="card in portfolioCards"
           :key="card.id"
@@ -73,19 +79,18 @@ onUnmounted(() => window.removeEventListener("keydown", handleEscape));
           :aria-label="`查看 ${card.title}`"
           @click="focusCard(card.id)"
         >
-          <span class="portfolio-card__visual"><span></span></span>
-          <span class="portfolio-card__index">{{ card.index }}</span>
-          <span class="portfolio-card__placeholder">作品待設定</span>
+          <span class="portfolio-card__visual">
+            <img v-if="card.image" :src="card.image" :alt="card.title" />
+          </span>
         </button>
 
         <Transition name="project-note">
           <aside v-if="selectedCard" class="project-note" aria-live="polite">
-            <p>{{ selectedCard.index }} / WORK IN PROGRESS</p>
-            <h2>{{ selectedCard.title }}</h2>
-            <span>{{ selectedCard.summary }}</span>
-            <a v-if="selectedCard.href" :href="selectedCard.href" target="_blank" rel="noreferrer">再點一次作品卡前往作品 ↗</a>
-            <em v-else>短簡介與作品連結將於下一步設定</em>
-            <button type="button" @click="clearSelection">回到全部作品</button>
+            <span class="project-note__summary">
+              <a v-if="selectedCard.href" :href="selectedCard.href" target="_blank" rel="noreferrer" aria-label="開啟作品連結">↗</a>
+              <span v-else class="project-note__link-placeholder" aria-hidden="true">↗</span>
+              <span class="project-note__copy">{{ selectedCard.summary }}</span>
+            </span>
           </aside>
         </Transition>
       </div>
