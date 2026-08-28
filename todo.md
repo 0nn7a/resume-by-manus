@@ -253,7 +253,7 @@
 
 # Mobile Safari 柔焦二次修正
 
-- [ ] 重新檢查公開版本與本地版本的柔焦幾何，確認問題是否來自固定偽元素與 Safari visual viewport 差異。
-- [ ] 改用更直接的固定 viewport 柔焦層，避免安全區計算造成白邊停在工具列上方。
-- [ ] 重新建置、推送並驗證 GitHub Pages 與手機 viewport。
-- [ ] 保存修正版並說明仍需實機確認的 Safari 限制。
+- [x] 重新檢查公開版本與本地版本的柔焦幾何，確認問題是否來自固定偽元素與 Safari visual viewport 差異。
+- [x] 改用更直接的固定 viewport 柔焦層，避免安全區計算造成白邊停在工具列上方。
+- [x] 重新建置、推送並驗證 GitHub Pages 與手機 viewport。
+- [x] 保存修正版並說明仍需實機確認的 Safari 限制。

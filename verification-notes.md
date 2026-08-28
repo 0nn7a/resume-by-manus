@@ -92,3 +92,12 @@ Mobile Safari 柔焦修正驗證：已將 `.quiet-resume` 與柔焦層加入 `10
 
 
 Safari 柔焦修正部署結果（2026-08-28）：commit `5c720ad` 已成功推送至公開 repository；最新 GitHub Actions run `33143625532` 的 build 與 deploy 均成功。公開頁面 `https://0nn7a.github.io/resume-by-manus/` 已重新載入並確認首頁內容、CSS 與導覽正常。修正包含 `100dvh`、上下 safe-area 延伸與底部負邊界；Chromium 390×844／375×812 viewport 已驗證柔焦貼齊，實際 Safari 建議再以 iPhone 實機確認工具列收合與瀏海安全區。
+
+
+Mobile Safari 二次排查（2026-08-28）：上一版仍未貼齊的關鍵原因是 `index.html` 缺少 `viewport-fit=cover`，使 Safari 的 safe-area inset 無法完整套用；另將柔焦底部改為由 `visualViewport.height` 與 `visualViewport.offsetTop` 動態計算，並監聽 resize、orientationchange、visualViewport resize／scroll。已重新建置；390×844 手機 viewport 預覽正常，待修正版 push 後再確認公開 Pages。
+
+
+Mobile Safari 二次修正版部署（2026-08-28）：新增 `viewport-fit=cover` 與 `visualViewport` 動態同步後，commit `1476844` 已成功推送；GitHub Actions run `33144925283` 的 build／deploy 均成功。公開頁面已重新開啟並確認內容正常。由於目前無法在 sandbox 直接執行 Safari，最後的底部工具列／Home Indicator 幾何仍需使用者以 iPhone Safari 實機確認；若仍有偏移，下一步將改為在 `body` 層建立獨立 fixed overlay，而不依賴 `.quiet-resume` 偽元素。
+
+
+Mobile Safari 二次修正公開驗證（2026-08-28）：最新 commit `2520c4f` 已成功推送；Actions run `33145030155` 的 build／deploy 均成功。公開頁面 `https://0nn7a.github.io/resume-by-manus/` 已以 cache-busting URL 重新開啟，確認內容與資產正常。最新實作同時包含 `viewport-fit=cover`、`visualViewport` 高度／offset 同步、safe-area 修正與雲白 theme-color；實機 Safari 若仍有偏移，應優先取得裝置截圖，以便對照 Safari 的 visual viewport 實際邊界。
