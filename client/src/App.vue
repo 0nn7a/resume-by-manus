@@ -49,8 +49,8 @@ const avatarUrl = "/manus-storage/nana-avatar_2d28ae2e.jpeg";
         <ResumeSection id="education" title="學歷" note="Education">
           <div class="simple-list">
             <article v-for="item in education" :key="item.school" class="simple-list__item">
-              <p>{{ item.interval }}</p>
-              <div>
+              <p class="simple-list__period">{{ item.interval }}</p>
+              <div class="simple-list__details">
                 <h3>{{ item.school }}</h3>
                 <span>{{ item.department }}</span>
               </div>
@@ -67,8 +67,8 @@ const avatarUrl = "/manus-storage/nana-avatar_2d28ae2e.jpeg";
         <ResumeSection id="credentials" title="資格認證" note="Credentials">
           <div class="credential-list">
             <article v-for="certificate in certifications" :key="certificate.code" class="credential-list__item">
-              <p>{{ certificate.interval }}</p>
-              <div>
+              <p class="credential-list__period">{{ certificate.interval }}</p>
+              <div class="credential-list__details">
                 <h3>{{ certificate.title }}</h3>
                 <span>{{ certificate.issuer }} · {{ certificate.code }}</span>
               </div>
