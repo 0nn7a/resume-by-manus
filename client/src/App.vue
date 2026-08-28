@@ -6,6 +6,7 @@ import PortfolioStack from "@/components/PortfolioStack.vue";
 import ResumeSection from "@/components/ResumeSection.vue";
 import SkillGroup from "@/components/SkillGroup.vue";
 import { certifications, education, experience, profile, skills } from "@/data/resume";
+import { BookOpen, CakeSlice, Github, Mail, Sparkles } from "lucide-vue-next";
 
 const avatarUrl = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663030849489/oAJLPvfVgHVhbtVA.jpeg";
 </script>
@@ -21,16 +22,10 @@ const avatarUrl = "https://files.manuscdn.com/user_upload_by_module/session_file
 
         <div class="intro__copy">
           <p class="intro__eyebrow">{{ profile.alias }} · {{ profile.location }} · {{ profile.birthday }} · {{ profile.mbti }}</p>
-          <p>我是設計背景出身的前端工程師，具 3 年以上企業系統開發經驗。</p>
-          <p>
-            我習慣主動釐清需求，把細節收乾淨再交付；在時程與品質之間，維持穩定、可溝通的節奏。
-          </p>
-          <p>
-            目前累積參與 104 套 BPM 流程系統，也持續整理元件設計、部署與維運中踩過的坑，讓團隊能更快延續工作。
-          </p>
-          <p>
-            我對能讓人清楚使用、安心維護的產品特別有興趣。這裡記錄我的工作經驗、技術工具與正在整理的作品。
-          </p>
+          <p>嗨！我是林家淇。</p>
+          <p>具 3 年以上前端開發經驗，正在往全端方向發展。</p>
+          <p>習慣主動釐清需求、把細節收乾淨再交付。</p>
+          <p>個性穩定、細心，重視交付品質與時程承諾，也習慣把踩過的坑紀錄成文檔留給團隊。</p>
         </div>
       </header>
 
@@ -64,12 +59,18 @@ const avatarUrl = "https://files.manuscdn.com/user_upload_by_module/session_file
           </div>
         </ResumeSection>
 
-        <ResumeSection id="credentials" title="資格認證" note="Credentials">
+        <ResumeSection id="credentials" title="資格認證" note="Certification">
           <div class="credential-list">
             <article v-for="certificate in certifications" :key="certificate.code" class="credential-list__item">
               <p class="credential-list__period">{{ certificate.interval }}</p>
               <div class="credential-list__details">
-                <h3>{{ certificate.title }}</h3>
+                <div class="credential-list__title-row">
+                  <span class="credential-list__brand" aria-hidden="true">
+                    <Sparkles v-if="certificate.issuer === 'Anthropic'" :size="15" :stroke-width="1.8" />
+                    <BookOpen v-else :size="15" :stroke-width="1.8" />
+                  </span>
+                  <h3>{{ certificate.title }}</h3>
+                </div>
                 <span>{{ certificate.issuer }} · {{ certificate.code }}</span>
               </div>
             </article>
@@ -78,14 +79,14 @@ const avatarUrl = "https://files.manuscdn.com/user_upload_by_module/session_file
 
         <ResumeSection id="connect" title="保持聯繫" note="Contact">
           <div class="connect-links">
-            <a :href="`mailto:${profile.email}`">{{ profile.email }}</a>
-            <a :href="profile.github" target="_blank" rel="noreferrer">GitHub ↗</a>
-            <a :href="profile.portfolio" target="_blank" rel="noreferrer">Cake Resume ↗</a>
+            <a :href="`mailto:${profile.email}`"><Mail :size="15" :stroke-width="1.8" aria-hidden="true" />{{ profile.email }}</a>
+            <a :href="profile.github" target="_blank" rel="noreferrer"><Github :size="15" :stroke-width="1.8" aria-hidden="true" />GitHub ↗</a>
+            <a :href="profile.portfolio" target="_blank" rel="noreferrer"><CakeSlice :size="15" :stroke-width="1.8" aria-hidden="true" />Cake Resume ↗</a>
           </div>
         </ResumeSection>
       </div>
 
-      <footer class="site-footer">© {{ new Date().getFullYear() }} {{ profile.name }} · {{ profile.alias }}</footer>
+      <footer id="bottom" class="site-footer">© {{ new Date().getFullYear() }} {{ profile.name }} · {{ profile.alias }}</footer>
     </div>
 
     <BottomNav />

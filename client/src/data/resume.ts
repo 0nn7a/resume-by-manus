@@ -34,7 +34,7 @@ export const profile = {
   name: "林家淇",
   displayName: "NANA",
   alias: "Nana / 0nn",
-  role: "Frontend Engineer",
+  role: "Software Engineer",
   email: "suannai1230@gmail.com",
   birthday: "1999.10.10",
   mbti: "INFJ",
@@ -135,14 +135,15 @@ export const certifications = [
 
 export const skills: SkillGroup[] = [
   {
-    label: "Web Design",
-    items: ["HTML 5、CSS 3", "SASS、Bootstrap 5、Tailwind CSS", "RWD 響應式網頁設計", "UI 設計與網頁配色"],
-    tags: ["#HTML", "#CSS", "#Sass", "#Figma", "#視覺設計"],
-  },
-  {
     label: "Front End",
-    items: ["JavaScript、TypeScript、jQuery", "AJAX、API、RESTful API", "Vue、Pinia、Vue Router、Nuxt 4"],
-    tags: ["#JavaScript", "#VueJS", "#AJAX", "#Node.js"],
+    items: [
+      "HTML 5、CSS 3、SASS、Bootstrap 5、Tailwind CSS",
+      "RWD 響應式網頁設計、UI 設計與網頁配色",
+      "JavaScript、TypeScript、jQuery",
+      "AJAX、API、RESTful API",
+      "Vue、Pinia、Vue Router、Nuxt 4",
+    ],
+    tags: ["#HTML", "#CSS", "#Sass", "#Figma", "#VueJS", "#TypeScript"],
   },
   {
     label: "Back End",

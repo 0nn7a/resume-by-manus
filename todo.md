@@ -75,7 +75,7 @@
 - [x] 移除首頁開場問候與「關於我」大標題，調整內容換行與位置。
 - [x] 在頂部小標加入生日與 INFJ，移除不適用的求職文案並逐行排列連結。
 - [x] 檢查同列文字、標籤與 icon 的垂直置中及桌面／手機版對齊。
-- [ ] 保存更新版本並交付。
+- [x] 保存更新版本並交付。
 
 本輪已完成 `pnpm run build`、桌面首頁截圖與手機首頁截圖；預覽互動確認五張卡可直接切換，選中簡介位於圖片下方，背景 hit-area 只清除選中狀態，明確關閉按鈕才會離開作品集。
 
@@ -135,5 +135,21 @@
 - [x] 移除伺服器程式與後端相容設定，改以 Vite 直接輸出靜態檔。
 - [x] 確認履歷文字與圖片均可由前端資料與可部署資源直接使用。
 - [x] 驗證 GitHub Pages Actions 建置、預覽與資源載入，保存更新版本。
+
+  
+
+# 履歷定位與導覽更新
+
+- [x] 將 document title 改為 `Nana｜Resume` 等通用寫法。
+- [x] 以使用者提供的文字替換首屏自介，移除前端定位誤導。
+- [x] 將 Web Design 內容合併至 Front End。
+- [x] 加入 Experience、Education、Skills、Certification 標題。
+- [x] 將底部導覽改為 Top、Experience、Education、Skills、Bottom。
+- [x] 為證書與聯絡連結加入一致的線性 icon。
+- [x] 驗證內容、對齊、連結與響應式版面，保存版本。
+
+  
+
+本輪驗證結果：桌面與手機版均顯示通用 Title `Nana｜Resume`、新的全端方向自介與生日／INFJ 小標；Web Design 已併入 Front End。底部導覽已改為 Top、Experience、Education、Skills、Bottom，證書與聯絡連結使用一致的 Lucide 線性 icon，長文字與 icon 在窄螢幕仍保持可讀與垂直對齊。`pnpm run build` 已成功完成。
 
   
