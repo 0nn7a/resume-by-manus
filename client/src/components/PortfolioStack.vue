@@ -43,7 +43,12 @@ function endCardPress(id: string) {
 function cancelCardPress() {
   clearCardPressTimer();
   pressedCardId = null;
-  suppressNextCardClick = true;
+  cardPressStartedAt = 0;
+}
+
+function handleCardPointerCancel() {
+  cancelCardPress();
+  suppressNextCardClick = false;
 }
 
 function handleCardClick(id: string) {
@@ -142,8 +147,7 @@ onUnmounted(() => {
           :aria-label="`查看 ${card.title}`"
           @pointerdown="startCardPress(card.id)"
           @pointerup="endCardPress(card.id)"
-          @pointercancel="cancelCardPress"
-          @pointerleave="cancelCardPress"
+          @pointercancel="handleCardPointerCancel"
           @contextmenu="handleCardContextMenu"
           @click="handleCardClick(card.id)"
         >
