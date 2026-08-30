@@ -181,6 +181,42 @@ a { color: inherit; text-decoration: none; }
   .bottom-nav a { width: 2.18rem; height: 2.18rem; font-size: 1.08rem; }
 }
 
+@media print {
+  @page { size: A4 portrait; margin: 8mm 12mm 8mm; }
+  html, body { min-width: 0; background: #fff; color: #242425; }
+  body { overflow: visible; }
+  .quiet-resume { min-height: auto; padding: 0; background: #fff; }
+  .viewport-fade, .intro__visuals, .bottom-nav, .site-footer, .resume-section--contact { display: none !important; }
+  .page-shell { width: 100%; max-width: none; }
+  .intro__copy { margin-top: 0; }
+  .profile-avatar { width: 1.9rem; height: 1.9rem; margin-bottom: 0.2rem; box-shadow: none; }
+  .intro__eyebrow { margin-bottom: 0.38rem; font-size: 6.8pt; }
+  .intro__copy > p:not(.intro__eyebrow) { max-width: none; font-size: 8.6pt; line-height: 1.32; }
+  .intro__paragraph-break { height: 0.28rem; }
+  .resume-index { margin-top: 0.85rem; }
+  .resume-section { padding: 0.72rem 0 0.48rem; border-top: 1px solid #dedbdd; break-inside: auto; }
+  .resume-section__header { margin-bottom: 0.45rem; padding-bottom: 0.28rem; }
+  .resume-section__header::before { margin-bottom: 0.2rem; font-size: 6pt; }
+  .resume-section__header h2 { font-size: 14pt; }
+  .resume-section__header p { margin-top: 0.2rem; font-size: 6pt; }
+  .experience-entry { break-inside: avoid; }
+  .experience-entry__header { margin-bottom: 0.42rem; }
+  .experience-entry__period, .simple-list__period, .credential-list__period { margin-bottom: 0.16rem; font-size: 6.2pt; }
+  .experience-entry__header h3, .simple-list__item h3, .credential-list__item h3 { font-size: 8.5pt; line-height: 1.25; }
+  .experience-entry__meta, .simple-list__item span, .credential-list__item span { margin-top: 0.12rem; font-size: 7pt; line-height: 1.25; }
+  .experience-entry__modules { gap: 0.34rem; }
+  .experience-module h4, .skill-group h3 { margin-bottom: 0.14rem; font-size: 7.6pt; }
+  .experience-module ul, .skill-group ul { gap: 0.08rem; }
+  .experience-module li, .skill-group li { padding-left: 0.62rem; font-size: 7pt; line-height: 1.2; }
+  .experience-module li::before { top: 0.62em; width: 0.18rem; }
+  .simple-list, .credential-list { gap: 0.36rem; }
+  .skills-list { gap: 0.48rem; }
+  .skill-tags, .skill-group--workstation, .resume-section--credentials { display: none !important; }
+  a { color: inherit; text-decoration: none; }
+  a::after { content: none !important; }
+  h2, h3, h4 { break-after: avoid; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }

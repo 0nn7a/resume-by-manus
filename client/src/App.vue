@@ -66,11 +66,11 @@ const avatarUrl = "https://files.manuscdn.com/user_upload_by_module/session_file
             <p>技能與工具</p>
           </header>
           <div class="skills-list">
-            <SkillGroup v-for="group in skills" :key="group.label" :group="group" />
+            <SkillGroup v-for="group in skills" :key="group.label" :group="group" :class="{ 'skill-group--workstation': group.label === 'Workstation' }" />
           </div>
         </ResumeSection>
 
-        <ResumeSection id="credentials" title="Certification" note="資格認證" :show-header="false">
+        <ResumeSection id="credentials" class="resume-section--credentials" title="Certification" note="資格認證" :show-header="false">
           <header class="resume-section__header" aria-label="Certification">
             <h2>Certification</h2>
             <p>資格認證</p>
