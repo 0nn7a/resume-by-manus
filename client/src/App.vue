@@ -23,6 +23,7 @@ const avatarUrl = "https://files.manuscdn.com/user_upload_by_module/session_file
         </div>
 
         <div class="intro__copy">
+          <p class="intro__print-name">{{ profile.name }}</p>
           <img class="profile-avatar" :src="avatarUrl" alt="林家淇的個人頭像" />
           <p class="intro__eyebrow">{{ profile.alias }} · {{ profile.location }} · {{ profile.birthday }} · {{ profile.mbti }}</p>
           <p>嗨！我是林家淇。</p>
